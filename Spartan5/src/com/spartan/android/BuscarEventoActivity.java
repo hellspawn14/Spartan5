@@ -16,29 +16,6 @@ import android.widget.Toast;
  */
 public class BuscarEventoActivity extends Activity 
 {
-	//-----------------------------------------------------------------
-	//Constantes
-	//-----------------------------------------------------------------
-
-	/**
-	 * Futbol
-	 */
-	public final static String SOCCER = "Fútbol";
-	
-	/**
-	 * Basketball
-	 */
-	public final static String BASKET = "Baloncesto";
-	
-	/**
-	 * Voleyball
-	 */
-	public final static String VOLEY = "Voleibol";
-	
-	/**
-	 * Tennis
-	 */
-	public final static String TENNIS = "Tenis";
 	
 	//-----------------------------------------------------------------
 	//Atributos
@@ -81,7 +58,7 @@ public class BuscarEventoActivity extends Activity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_buscar_evento);
 		
-		sportKey = "ola ke ase";
+		sportKey = "";
 		
 		btnSoccer = (ImageButton) findViewById(R.id.btnSoccer);
 		btnSoccer.setOnClickListener(new OnClickListener() 
@@ -89,7 +66,7 @@ public class BuscarEventoActivity extends Activity
 			@Override
 			public void onClick(View w) 
 			{
-				getKeySelection(SOCCER);
+				getKeySelection(com.spartan.recursos.Eventos.SOCCER);
 			} 
 		});
 		
@@ -99,7 +76,7 @@ public class BuscarEventoActivity extends Activity
 			@Override
 			public void onClick(View w) 
 			{
-				getKeySelection(BASKET);
+				getKeySelection(com.spartan.recursos.Eventos.BASKET);
 			} 
 		});
 
@@ -109,7 +86,7 @@ public class BuscarEventoActivity extends Activity
 			@Override
 			public void onClick(View w) 
 			{
-				getKeySelection(VOLEY);
+				getKeySelection(com.spartan.recursos.Eventos.VOLEY);
 			} 
 		});
 		
@@ -119,7 +96,7 @@ public class BuscarEventoActivity extends Activity
 			@Override
 			public void onClick(View w) 
 			{
-				getKeySelection(TENNIS);
+				getKeySelection(com.spartan.recursos.Eventos.TENNIS);
 			} 
 		});
 
@@ -155,7 +132,7 @@ public class BuscarEventoActivity extends Activity
             	btnBasket.setPressed(false);
             	btnVoley.setPressed(false);
             	btnTennis.setPressed(false);
-            	getKeySelection(SOCCER);
+            	getKeySelection(com.spartan.recursos.Eventos.SOCCER);
                 return true;
             }
         });
@@ -169,7 +146,7 @@ public class BuscarEventoActivity extends Activity
             	btnSoccer.setPressed(false);
             	btnVoley.setPressed(false);
             	btnTennis.setPressed(false);
-            	getKeySelection(BASKET);
+            	getKeySelection(com.spartan.recursos.Eventos.BASKET);
                 return true;
             }
         });
@@ -183,7 +160,7 @@ public class BuscarEventoActivity extends Activity
             	btnBasket.setPressed(false);
             	btnSoccer.setPressed(false);
             	btnTennis.setPressed(false);
-            	getKeySelection(VOLEY);
+            	getKeySelection(com.spartan.recursos.Eventos.VOLEY);
                 return true;
             }
         });
@@ -197,7 +174,7 @@ public class BuscarEventoActivity extends Activity
             	btnVoley.setPressed(false);
             	btnBasket.setPressed(false);
             	btnSoccer.setPressed(false);
-            	getKeySelection(TENNIS);
+            	getKeySelection(com.spartan.recursos.Eventos.TENNIS);
                 return true;
             }
         });

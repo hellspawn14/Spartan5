@@ -36,5 +36,11 @@
             android:screenOrientation="portrait"
             android:theme="@style/generalnotitle">    
         </activity>
+        <!-- Resultados de la busqueda -->
+        <activity
+            android:name="com.spartan.android.ResultadosBusquedaActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/generalnotitle">    
+        </activity>
     </application>
 </manifest>

@@ -5,6 +5,7 @@
     android:orientation="vertical" 
     android:background="@color/splashScreenBackground">
 
+    <!-- Status del juegador -->
     <ImageView
         android:id="@+id/imageView1"
         android:layout_width="match_parent"
@@ -12,7 +13,7 @@
         android:src="@drawable/badge_sample" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/lblStatus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/lblStatus"
@@ -32,6 +33,7 @@
             android:rating="4.0"
             android:stepSize="1.0" />
 
+    <!-- Detalle de los encuentros -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
@@ -58,7 +60,7 @@
                 android:textColor="@color/white"/>
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/lblEncuentrosFutbol"
                 android:layout_width="match_parent" 
     			android:layout_height="match_parent"
     			android:layout_centerInParent="true"
@@ -96,7 +98,7 @@
                 	android:textColor="@color/white"/>
 
            	 	<TextView
-                	android:id="@+id/textView4"
+                	android:id="@+id/lblEncuentrosBasket"
                 	android:layout_width="match_parent" 
     				android:layout_height="match_parent"
     				android:layout_centerInParent="true"
@@ -132,7 +134,7 @@
                 android:textColor="@color/white"/>
 
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/lblEncuentrosVoley"
                 android:layout_width="match_parent" 
     			android:layout_height="match_parent"
     			android:layout_centerInParent="true"
@@ -169,7 +171,7 @@
                 android:textColor="@color/white"/>
 
             <TextView
-                android:id="@+id/textView8"
+                android:id="@+id/lblEncuentrosTennis"
                 android:layout_width="match_parent" 
     			android:layout_height="match_parent"
     			android:layout_centerInParent="true"

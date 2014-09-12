@@ -1,0 +1,6 @@
+assistence_data
+Deporte
+Nombre evento
+Fecha y hora
+Lugar (direccion - coordenadas)
+Asistio ya o no

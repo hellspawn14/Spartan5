@@ -2,12 +2,13 @@
 
     <string name="app_name">Spartan 5</string>
     <string name="btnBuscar">Buscar evento</string>
-    <string name="cmdBuscar">Buscar ahora</string>
+    <string name="cmdBuscar">Buscar</string>
     <string name="btnCrear">Crear evento</string>
     <string name="btnCheckIn">Check in</string>
     <string name="btnParametros">Parametros</string>
     <string name="btnPopulares">Eventos populares</string>
-    <string name="txtDeporte"> Seleccionar deporte o actividad</string>
-    <string name="txtFecha"> Seleccionar fecha y hora</string>
-    <string name="txtOferta"> Incluir oferta publica</string>
+    <string name="txtDeporte">Seleccionar deporte o actividad</string>
+    <string name="txtFecha">Seleccionar fecha y hora</string>
+    <string name="txtOferta">Incluir oferta publica</string>
+    <string name="txtResultados">Resultados de busqueda</string>
 </resources>

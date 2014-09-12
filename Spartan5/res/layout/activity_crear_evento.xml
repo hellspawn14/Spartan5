@@ -5,5 +5,64 @@
     android:orientation="vertical" 
     android:background="@color/splashScreenBackground">
     
+    
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/txtDeporte"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:background="@color/txtBarBackground"
+        android:textColor="@color/white" />
+  
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+	    android:orientation="horizontal" 
+	    android:layout_weight="1">
+
+        <ImageButton
+        	android:id="@+id/btnSoccerCrear"
+        	android:layout_height="match_parent"
+        	android:background="@color/splashScreenBackground"
+        	android:layout_width="match_parent"
+        	android:layout_weight="1"
+        	android:adjustViewBounds="true"
+        	android:src="@drawable/soccer_button_selector"
+        	android:scaleType="fitCenter"/>
+        
+        <ImageButton
+        	android:id="@+id/btnBasketCrear"
+        	android:layout_height="match_parent"
+        	android:background="@color/splashScreenBackground"
+        	android:layout_width="match_parent"
+        	android:layout_weight="1"
+        	android:adjustViewBounds="true"
+        	android:src="@drawable/basket_button_selector"
+        	android:scaleType="fitCenter"/>
+                    
+        <ImageButton
+        	android:id="@+id/btnVoleyCrear"
+        	android:layout_height="match_parent"
+        	android:background="@color/splashScreenBackground"
+        	android:layout_width="match_parent"
+        	android:layout_weight="1"
+        	android:adjustViewBounds="true"
+        	android:src="@drawable/voley_button_selector"
+        	android:scaleType="fitCenter"/>
+                
+        <ImageButton
+        	android:id="@+id/btnTennisCrear"
+        	android:layout_height="match_parent"
+        	android:background="@color/splashScreenBackground"
+        	android:layout_width="match_parent"
+        	android:layout_weight="1"
+        	android:adjustViewBounds="true"
+        	android:src="@drawable/tennis_button_selector"
+        	android:scaleType="fitCenter"/>
+
+	</LinearLayout>
+    
+    
 
 </LinearLayout>

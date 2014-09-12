@@ -142,50 +142,25 @@
 		    android:orientation="horizontal" >
 			<Button
 			    android:id="@+id/button1"
-			    android:layout_width="wrap_content"
+			    android:layout_width="match_parent"
 			    android:layout_height="wrap_content"
 			    android:layout_weight="1"
-			    android:text="B1" 
+			    android:text="@string/cmdBuscar" 
 			    android:onClick="buscarEvento" />
 			<Button
 			    android:id="@+id/button2"
-			    android:layout_width="wrap_content"
+			    android:layout_width="match_parent"
 			    android:layout_height="wrap_content"
 			    android:layout_weight="1"
-			    android:text="B2" />
+			    android:text="@string/cmdCrear" 
+			    android:onClick="crearEvento"/>
 			<Button
 			    android:id="@+id/button3"
-			    android:layout_width="wrap_content"
+			    android:layout_width="match_parent"
 			    android:layout_height="wrap_content"
 			    android:layout_weight="1"
-			    android:text="B3" />
-		</LinearLayout>
-		<LinearLayout
-		    android:layout_width="match_parent"
-		    android:layout_height="wrap_content"
-		    android:orientation="horizontal" >
-			<Button
-			    android:id="@+id/button4"
-			    android:layout_width="wrap_content"
-			    android:layout_height="wrap_content"
-			    android:layout_weight="1"
-			    android:text="B4" />
-			<Button
-			    android:id="@+id/button5"
-			    android:layout_width="wrap_content"
-			    android:layout_height="wrap_content"
-			    android:layout_weight="1"
-			    android:text="B5" />
-			<Button
-			    android:id="@+id/button6"
-			    android:layout_width="wrap_content"
-			    android:layout_height="wrap_content"
-			    android:layout_weight="1"
-			    android:text="B6" />
-		</LinearLayout>
-		
-		
-
+			    android:text="@string/cmdCheckIn" />
+		</LinearLayout>		
 	</LinearLayout>
 
 </LinearLayout>

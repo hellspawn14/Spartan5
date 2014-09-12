@@ -17,7 +17,7 @@
   
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="wrap_content"
 	    android:orientation="horizontal" 
 	    android:layout_weight="1">
 
@@ -62,6 +62,54 @@
         	android:scaleType="fitCenter"/>
 
 	</LinearLayout>
+    
+    <View style="@style/Divider"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/txtFecha"
+        android:background="@color/txtBarBackground"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/white" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:orientation="vertical"  
+	    android:background="@color/btnBackground">
+
+        <DatePicker
+            android:id="@+id/datePicker1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:calendarViewShown="false" />
+        
+        <View style="@style/Divider"/>
+
+        <TimePicker
+            android:id="@+id/timePicker1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+    
+    <View style="@style/Divider"/>
+
+
+    
+    <Button
+	    android:id="@+id/button2"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:text="@string/cmdCrear" />
     
     
 

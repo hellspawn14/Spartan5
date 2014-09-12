@@ -180,5 +180,9 @@ public class CrearEventoActivity extends Activity
             }
         });
 	}
-
+	
+	public void confirmarEvento(View w)
+	{
+		
+	}
 }

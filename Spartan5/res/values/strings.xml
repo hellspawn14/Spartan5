@@ -3,6 +3,7 @@
     <string name="app_name">Spartan 5</string>
     <string name="btnBuscar">Buscar evento</string>
     <string name="cmdBuscar">Buscar</string>
+    <string name="cmdInvitar">Invitar amigos</string>
     <string name="cmdCrear">Crear</string>
     <string name="cmdCheckIn">Check in</string>
     <string name="btnCrear">Crear evento</string>
@@ -19,5 +20,6 @@
     <string name="lblTennis">Tenis</string>
     <string name="lblStatus">Status</string>
     <string name="lblEncuentros">Encuentros:</string>
+    <string name="txtAmigos">Invitar amigos</string>
         
 </resources>

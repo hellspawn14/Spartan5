@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="splashScreenBackground">#0066CC</color> 
+    <color name="white">#FFFFFF</color>   
+    <color name="gray">#B0B0B0</color>
+    <color name="black">#000000</color>
+    <color name="lineSeparator">#888888</color>
+    <color name="glossyBlack">#191919</color>
+    <color name="txtBarBackground">#0099CC</color>
+    <color name="btnBackground">#D8D8D8</color>
+</resources>

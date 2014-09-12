@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/splashScreenBackground"
+    android:orientation="vertical" 
+    android:layout_weight="1">
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/txtDeporte"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:background="@color/txtBarBackground"
+        android:textColor="@color/white" />
+  
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+	    android:orientation="horizontal" 
+	    android:layout_weight="1">
+
+        <ImageButton
+        	android:id="@+id/btnSoccer"
+        	android:layout_height="match_parent"
+        	android:background="@color/splashScreenBackground"
+        	android:layout_width="match_parent"
+        	android:layout_weight="1"
+        	android:adjustViewBounds="true"
+        	android:src="@drawable/soccer_button_selector"
+        	android:scaleType="fitCenter"/>
+        
+        <ImageButton
+        	android:id="@+id/btnBasket"
+        	android:layout_height="match_parent"
+        	android:background="@color/splashScreenBackground"
+        	android:layout_width="match_parent"
+        	android:layout_weight="1"
+        	android:adjustViewBounds="true"
+        	android:src="@drawable/basket_button_selector"
+        	android:scaleType="fitCenter"/>
+                    
+        <ImageButton
+        	android:id="@+id/btnVoley"
+        	android:layout_height="match_parent"
+        	android:background="@color/splashScreenBackground"
+        	android:layout_width="match_parent"
+        	android:layout_weight="1"
+        	android:adjustViewBounds="true"
+        	android:src="@drawable/voley_button_selector"
+        	android:scaleType="fitCenter"/>
+                
+        <ImageButton
+        	android:id="@+id/btnTennis"
+        	android:layout_height="match_parent"
+        	android:background="@color/splashScreenBackground"
+        	android:layout_width="match_parent"
+        	android:layout_weight="1"
+        	android:adjustViewBounds="true"
+        	android:src="@drawable/tennis_button_selector"
+        	android:scaleType="fitCenter"/>
+
+	</LinearLayout>
+	<View style="@style/Divider"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/txtFecha"
+        android:background="@color/txtBarBackground"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/white" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <DatePicker
+            android:id="@+id/datePicker1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:calendarViewShown="false" />
+        
+        <View style="@style/Divider"/>
+
+        <TimePicker
+            android:id="@+id/timePicker1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+    
+	<Button
+	    android:id="@+id/button1"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:text="@string/cmdBuscar"
+	    android:background="@color/btnBackground" />
+
+</LinearLayout>

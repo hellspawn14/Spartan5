@@ -1,34 +1,31 @@
-package com.spartan.entidades;
+package com.spartan.android;
 
-import java.util.ArrayList;
+import com.spartan.entidades.Evento;
 
 /**
- * Representa al usuario
+ * Vista del perfil del usuario 
  * @author hellspawn
  */
-public class Usuario 
+public class VerPerfilActivity 
 {
-	
 	//-----------------------------------------------------------------
 	//Constantes
 	//-----------------------------------------------------------------
-	
-	
-	
+
 	//-----------------------------------------------------------------
 	//Atributos
 	//-----------------------------------------------------------------
 
 	/**
-	 * Lista de eventos por asistir
+	 * Indica si el usuario ya asistio o no al evento
 	 */
-	private ArrayList <Asistencia> asistencias;
+	private boolean estado;
 	
 	/**
-	 * Lista de eventos creados por el usuario
+	 * Referencia al evento 
 	 */
-	private ArrayList <EventoPrivado> eventosUsuario;
-	 
+	private Evento evento;
+	
 	//-----------------------------------------------------------------
 	//Constructores
 	//-----------------------------------------------------------------
@@ -37,6 +34,5 @@ public class Usuario
 	//-----------------------------------------------------------------
 	//Metodos
 	//-----------------------------------------------------------------
-	
 
 }

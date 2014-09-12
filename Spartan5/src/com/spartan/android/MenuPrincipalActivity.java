@@ -63,4 +63,10 @@ public class MenuPrincipalActivity extends Activity
 		startActivity(intent);
 	}
 	
+	public void verPerfil(View w)
+	{
+		Intent intent = new Intent(getApplicationContext(), BuscarEventoActivity.class);
+		startActivity(intent);
+	}
+	
 }

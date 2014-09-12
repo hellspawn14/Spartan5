@@ -11,6 +11,7 @@
     <string name="btnParametros">Parametros</string>
     <string name="btnPopulares">Eventos populares</string>
     <string name="txtDeporte">Seleccionar deporte o actividad</string>
+    <string name="lblTituloActividad">Título del evento</string>
     <string name="txtFecha">Seleccionar fecha y hora</string>
     <string name="txtOferta">Incluir oferta publica</string>
     <string name="txtResultados">Resultados de busqueda</string>

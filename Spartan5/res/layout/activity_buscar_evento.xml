@@ -78,22 +78,25 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_weight="1"
-        android:orientation="vertical" >
+        android:orientation="vertical"  
+	    android:background="@color/btnBackground">
 
         <DatePicker
             android:id="@+id/datePicker1"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_weight="1"
             android:calendarViewShown="false" />
         
         <View style="@style/Divider"/>
 
         <TimePicker
             android:id="@+id/timePicker1"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:layout_weight="1"/>
 
     </LinearLayout>
     
@@ -101,7 +104,6 @@
 	    android:id="@+id/button1"
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
-	    android:text="@string/cmdBuscar"
-	    android:background="@color/btnBackground" />
+	    android:text="@string/cmdBuscar" />
 
 </LinearLayout>

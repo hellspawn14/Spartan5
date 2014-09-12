@@ -64,6 +64,17 @@ public class MenuPrincipalActivity extends Activity
 	}
 	
 	/**
+	 * Metodo para el llamado de la vista para crear un evento 
+	 * @param w - Es la vista actual 
+	 */
+	public void crearEvento(View w)
+	{
+		Intent intent = new Intent(getApplicationContext(), CrearEventoActivity.class);
+		startActivity(intent);
+	}
+	
+	
+	/**
 	 * Metodo para el llamado de la vista con los datos detallados del perfil del usuario
 	 * @param w - Es la vista actual 
 	 */

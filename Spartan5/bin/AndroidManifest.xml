@@ -48,5 +48,11 @@
             android:screenOrientation="portrait"
             android:theme="@style/generalnotitle">    
         </activity>
+        <!-- Crear evento -->
+        <activity
+            android:name="com.spartan.android.CrearEventoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/generalnotitle">    
+        </activity>
     </application>
 </manifest>

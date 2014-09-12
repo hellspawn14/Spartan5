@@ -29,6 +29,7 @@ public class MenuPrincipalActivity extends Activity
 	 * Barra con el status de juegador
 	 */
 	RatingBar calificacionJugador;
+	
 	//-----------------------------------------------------------------
 	//Constructores
 	//-----------------------------------------------------------------

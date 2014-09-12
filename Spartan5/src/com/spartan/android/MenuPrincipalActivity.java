@@ -63,9 +63,13 @@ public class MenuPrincipalActivity extends Activity
 		startActivity(intent);
 	}
 	
+	/**
+	 * Metodo para el llamado de la vista con los datos detallados del perfil del usuario
+	 * @param w - Es la vista actual 
+	 */
 	public void verPerfil(View w)
 	{
-		Intent intent = new Intent(getApplicationContext(), BuscarEventoActivity.class);
+		Intent intent = new Intent(getApplicationContext(), VerPerfilActivity.class);
 		startActivity(intent);
 	}
 	

@@ -11,4 +11,11 @@
     <string name="txtFecha">Seleccionar fecha y hora</string>
     <string name="txtOferta">Incluir oferta publica</string>
     <string name="txtResultados">Resultados de busqueda</string>
+	<string name="lblFutbol">Fútbol</string>
+    <string name="lblBasket">Baloncesto</string>
+    <string name="lblVoley">Voleybol</string>
+    <string name="lblTennis">Tenis</string>
+    <string name="lblStatus">Status</string>
+    <string name="lblEncuentros">Encuentros:</string>
+        
 </resources>

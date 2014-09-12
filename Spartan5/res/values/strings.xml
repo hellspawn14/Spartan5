@@ -2,6 +2,8 @@
 
     <string name="app_name">Spartan 5</string>
     <string name="btnBuscar">Buscar evento</string>
+    <string name="lblPerfil">Perfil</string>
+    <string name="lblCheck">Check in</string>
     <string name="cmdBuscar">Buscar</string>
     <string name="cmdInvitar">Invitar amigos</string>
     <string name="cmdCrear">Crear</string>
@@ -16,6 +18,7 @@
     <string name="txtFecha">Seleccionar fecha y hora</string>
     <string name="txtOferta">Incluir oferta publica</string>
     <string name="txtResultados">Resultados de busqueda</string>
+    <string name="txtConfirmarEvento">Confirmación de evento</string>
 	<string name="lblFutbol">Fútbol</string>
     <string name="lblBasket">Baloncesto</string>
     <string name="lblVoley">Voleybol</string>
@@ -23,5 +26,9 @@
     <string name="lblStatus">Status</string>
     <string name="lblEncuentros">Encuentros:</string>
     <string name="txtAmigos">Invitar amigos</string>
-        
+    <string name="lblDatosEvento">Datos del evento</string>
+    <string name="lblInvitados">Invitados al evento</string>
+    <string name="cmdAgregarInvitados">Invitar amigos</string>
+    <string name="cmdConfirmar">Terminar confirmación</string>
+  
 </resources>

@@ -3,6 +3,7 @@ package com.spartan.android;
 import com.example.spartan5.R;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -183,6 +184,7 @@ public class CrearEventoActivity extends Activity
 	
 	public void confirmarEvento(View w)
 	{
-		
+		Intent intent = new Intent(getApplicationContext(), ConfirmarEventoActivity.class);
+		startActivity(intent);
 	}
 }

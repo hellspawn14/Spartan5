@@ -34,7 +34,7 @@
         <activity
             android:name="com.spartan.android.BuscarEventoActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/generalnotitle">    
+            android:label="@string/btnBuscar">    
         </activity>
         <!-- Resultados de la busqueda -->
         <activity
@@ -46,19 +46,25 @@
         <activity
             android:name="com.spartan.android.VerPerfilActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/generalnotitle">    
+            android:label="@string/lblPerfil">    
         </activity>
         <!-- Crear evento -->
         <activity
             android:name="com.spartan.android.CrearEventoActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/generalnotitle">    
+            android:label="@string/btnCrear">    
         </activity>
-        <!-- Crear evento -->
+        <!-- Confirmar evento -->
         <activity
             android:name="com.spartan.android.CheckInActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/generalnotitle">    
+            android:label="@string/lblCheck">    
+        </activity>
+        <!-- Crear evento -->
+        <activity
+            android:name="com.spartan.android.ConfirmarEventoActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/txtConfirmarEvento">    
         </activity>
     </application>
 </manifest>

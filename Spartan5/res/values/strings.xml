@@ -16,6 +16,8 @@
     <string name="lblTituloActividad">Título del evento</string>
     <string name="lblLugarEvento">Lugar</string>
     <string name="txtFecha">Seleccionar fecha y hora</string>
+    <string name="lblUbicacion">Ubicación</string>
+    <string name="cmdUbicacion">Utilizar ubicación actual</string>
     <string name="txtOferta">Incluir oferta publica</string>
     <string name="txtResultados">Resultados de busqueda</string>
     <string name="txtConfirmarEvento">Confirmación de evento</string>

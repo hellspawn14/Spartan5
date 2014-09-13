@@ -41,6 +41,10 @@ public class MenuPrincipalActivity extends Activity
 	
 	private TextView txtBasket;
 	
+	private TextView txtVoley;
+	
+	private TextView txtTennis;
+	
 	//-----------------------------------------------------------------
 	//Constructores
 	//-----------------------------------------------------------------
@@ -59,10 +63,20 @@ public class MenuPrincipalActivity extends Activity
 		stars.getDrawable(0).setColorFilter(Color.GRAY, PorterDuff.Mode.SRC_ATOP);
 		stars.getDrawable(2).setColorFilter(Color.YELLOW, PorterDuff.Mode.SRC_ATOP);
 		
+		//Conexion con los elementos graficos 
+		txtFutbol = (TextView) findViewById(R.id.numFutbol);
+		txtBasket = (TextView) findViewById(R.id.numBasket);
+		txtVoley = (TextView) findViewById(R.id.numVoley);
+		txtTennis = (TextView) findViewById(R.id.numTennis);
+		
 		//Carga los datos del recurso 
 		instanciaSpartan = Spartan.darInstancia(getApplicationContext()); 
 		
-		
+		//Inicializa los componentes 
+		txtFutbol.setText(instanciaSpartan.darUsuario().getFutbol() + "");
+		txtBasket.setText(instanciaSpartan.darUsuario().getBasket() + "");
+		txtVoley.setText(instanciaSpartan.darUsuario().getVoley() + "");
+		txtTennis.setText(instanciaSpartan.darUsuario().getTennis() + "");
 	}
 	
 	//-----------------------------------------------------------------

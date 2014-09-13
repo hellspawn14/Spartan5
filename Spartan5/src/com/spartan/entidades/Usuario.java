@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 import android.content.Context;
+import android.util.Log;
 
 /**
  * Representa al usuario
@@ -120,13 +121,16 @@ public class Usuario
 		{			  
 			BufferedReader br = new BufferedReader(new InputStreamReader(c.getResources().getAssets().open("user_data.txt")));
 			String linea = br.readLine();
-			while( !linea.equals(END_FILE) )
+			Log.d("HELLSPAWN", linea);
+			while(linea != null)
 			{
 				userScore = Double.parseDouble(linea.split(";")[0].split("=")[1]);
-				setFutbol(Integer.parseInt(linea.split(";")[1].split("=")[1]));
+				Log.d("HELLSPAWN", userScore + "");
+				nFutbol = Integer.parseInt(linea.split(";")[2].split("=")[1]);
 				nBasket = Integer.parseInt(linea.split(";")[2].split("=")[1]);
 				nVoley = Integer.parseInt(linea.split(";")[3].split("=")[1]);
 				nTennis = Integer.parseInt(linea.split(";")[4].split("=")[1]);
+				linea = br.readLine();
 			}
 			br.close();
 		} 
@@ -182,9 +186,17 @@ public class Usuario
 	}
 
 	/**
+	 * @param nFutbol the nFutbol to set
+	 */
+	public void setFutbol(int nFutbol) 
+	{
+		this.nFutbol = nFutbol;
+	}
+	
+	/**
 	 * @return the nBasket
 	 */
-	public int getnBasket() 
+	public int getBasket() 
 	{
 		return nBasket;
 	}
@@ -192,7 +204,7 @@ public class Usuario
 	/**
 	 * @param nBasket the nBasket to set
 	 */
-	public void setnBasket(int nBasket)
+	public void setBasket(int nBasket)
 	{
 		this.nBasket = nBasket;
 	}
@@ -200,7 +212,7 @@ public class Usuario
 	/**
 	 * @return the nVoley
 	 */
-	public int getnVoley() 
+	public int getVoley() 
 	{
 		return nVoley;
 	}
@@ -208,7 +220,7 @@ public class Usuario
 	/**
 	 * @param nVoley the nVoley to set
 	 */
-	public void setnVoley(int nVoley) 
+	public void setVoley(int nVoley) 
 	{
 		this.nVoley = nVoley;
 	}
@@ -216,7 +228,7 @@ public class Usuario
 	/**
 	 * @return the nTennis
 	 */
-	public int getnTennis() 
+	public int getTennis() 
 	{
 		return nTennis;
 	}
@@ -224,18 +236,12 @@ public class Usuario
 	/**
 	 * @param nTennis the nTennis to set
 	 */
-	public void setnTennis(int nTennis) 
+	public void setTennis(int nTennis) 
 	{
 		this.nTennis = nTennis;
 	}
 
-	/**
-	 * @param nFutbol the nFutbol to set
-	 */
-	public void setFutbol(int nFutbol) 
-	{
-		this.nFutbol = nFutbol;
-	}
+
 	
 	
 

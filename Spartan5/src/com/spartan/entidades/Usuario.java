@@ -58,7 +58,7 @@ public class Usuario
 	/**
 	 * Lista de eventos creados por el usuario
 	 */
-	private ArrayList <EventoPrivado> eventosUsuario;
+	private ArrayList <Evento> eventosUsuario;
 	
 	/**
 	 * Numero de encuentros de futbol

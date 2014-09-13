@@ -1,6 +1,4 @@
-events_data
-//Datos de los eventos 
-Deporte
-Nombre evento
-Fecha y hora
-Lugar (direccion - coordenadas)
+ID=1;deporte=Fútbol;titulo=Cursos de fútbol libres en uniandes;lugar=Centro deportivo Universidad de los Andes;organizador=uniandes;localizacion=4.600196,-74.063390;Fecha=09/13/2014 15:30:00
+ID=2;deporte=Baloncesto;titulo=Cursos de baloncesto libres en uniandes;lugar=Centro deportivo Universidad de los Andes;organizador=uniandes;localizacion=4.600196,-74.063390;Fecha=09/13/2014 15:30:00
+ID=3;deporte=Voleibol;titulo=Cursos de voleybol libres en uniandes;lugar=Centro deportivo Universidad de los Andes;organizador=uniandes;localizacion=4.600196,-74.063390;Fecha=09/13/2014 15:30:00
+ID=4;deporte=Tenis;titulo=Cursos de tenis libres en uniandes;lugar=Centro deportivo universidad de los Andes;organizador=uniandes;localizacion=4.600196,-74.063390;Fecha=09/13/2014 15:30:00

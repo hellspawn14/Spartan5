@@ -1,8 +1,13 @@
 package com.spartan.entidades;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import android.content.Context;
+import android.util.Log;
 
 /**
  * Representa la clase principal de la aplicacion 
@@ -15,6 +20,10 @@ public class Spartan
 	//Constantes
 	//-----------------------------------------------------------------
 
+	/**
+	 * Formato de fecha
+	 */
+	public final static String FORMAT = "MM/dd/yyyy hh:mm:ss";
 	//-----------------------------------------------------------------
 	//Atributos
 	//-----------------------------------------------------------------
@@ -50,6 +59,8 @@ public class Spartan
 	public Spartan (Context c)
 	{
 		user = new Usuario(c);
+		catalogoEventos = new ArrayList<Evento>();
+		loadEvents(c);
 	}
 	
 
@@ -78,6 +89,130 @@ public class Spartan
 	public Usuario darUsuario()
 	{
 		return user;
+	}
+	
+	/**
+	 * Carga los eventos del archivo de eventos
+	 */
+	private void loadEvents(Context c)
+	{
+		try
+		{
+			BufferedReader br = new BufferedReader(new InputStreamReader(c.getResources().getAssets().open("events_data.txt")));
+			String linea = br.readLine();
+			//ID=2;deporte=Baloncesto;titulo=Cursos de baloncesto libres en uniandes;lugar=Centro deportivo Universidad de los Andes;organizador=uniandes;localizacion=4.600196,-74.063390;Fecha=09/13/2014-15:30
+			String idEvento;
+			String tipoEvento;
+			String tituloEvento;
+			String strLugarEvento;
+			String organizador;
+			Double latitud;
+			Double longitud;
+			Date fechaEvento;
+			String strFecha;
+			SimpleDateFormat dt = new SimpleDateFormat(FORMAT);
+			Evento event;
+		
+			Log.d("HELLSPAWN", linea);
+			while(linea != null)
+			{
+				Log.d("HELLSPAWN", linea);
+				idEvento = linea.split(";")[0].split("=")[1];
+				Log.d("HELLSPAWN", idEvento);
+				tipoEvento = linea.split(";")[1].split("=")[1];
+				Log.d("HELLSPAWN", tipoEvento);
+				tituloEvento = linea.split(";")[2].split("=")[1];
+				Log.d("HELLSPAWN", tituloEvento);
+				strLugarEvento = linea.split(";")[3].split("=")[1];
+				Log.d("HELLSPAWN", strLugarEvento);
+				organizador = linea.split(";")[4].split("=")[1];
+				Log.d("HELLSPAWN", organizador);
+				latitud = Double.parseDouble(linea.split(";")[5].split("=")[1].split(",")[0]);
+				Log.d("HELLSPAWN", latitud + "");
+				longitud = Double.parseDouble(linea.split(";")[5].split("=")[1].split(",")[1]);
+				Log.d("HELLSPAWN", longitud + "");
+				strFecha = linea.split(";")[6].split("=")[1];
+				Log.d("HELLSPAWN", strFecha);
+				try
+				{
+					fechaEvento = dt.parse(strFecha);
+					event = new Evento(idEvento,tipoEvento,tituloEvento,strLugarEvento,organizador,latitud,longitud,fechaEvento);
+					catalogoEventos.add(event);	
+					linea = br.readLine();
+					Log.d("Eventos hellspawn" , event.getIdEvento());
+					
+				}
+				catch(Exception ex)
+				{
+					Log.d("HELLSPAWN", "OLA KE ASE");
+				}
+				linea = br.readLine();
+				
+			}
+			br.close();		
+		} 
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * Busca en la lista de eventos sin tener en cuenta la localizacion
+	 * @param key - Es el deporte
+	 * @param D - Es la fecha 
+	 * @return Lista con los resultados
+	 */
+	public ArrayList <Evento> searchEventNoLocation(String key, Date D)
+	{
+		ArrayList <Evento> ans = new ArrayList<Evento>();
+		return ans;
+	}
+	/**
+	 * Busca en la lista de eventos sin tener en cuenta la localizacion ni fecha
+	 * @param key - Es el deporte
+	 * @return lista con los resultados
+	 */
+	public ArrayList <Evento> searchByKey(String key)
+	{
+		ArrayList <Evento> ans = new ArrayList<Evento>();
+		Evento e;
+		for (int i = 0; i < catalogoEventos.size(); i++)
+		{
+			e = catalogoEventos.get(i);
+			if (e.getTipoEvento().equals(key))
+			{
+				Log.d("Eventos hellspawn" , e.getIdEvento());
+				ans.add(e);
+			}
+		}
+		return ans;
+	}
+	
+	/**
+	 * Retorna todo el catalogo de eventos
+	 * @return
+	 */
+	public ArrayList <Evento> getCatalogo()
+	{
+		return catalogoEventos;
+	}
+	
+	/**
+	 * Retorna la lista en strings de los eventos del resultado
+	 * @param results - Es la lista con los resultados 
+	 * @return - Lista de strings 
+	 */
+	public String [] getEventListData(ArrayList <Evento> results)
+	{
+		String [] ans = new String[results.size()];
+		Evento ev;
+		for (int i = 0; i < results.size(); i++)
+		{
+			ev = results.get(i);
+			ans[i] = ev.getInformationStr();
+		}
+		return ans;
 	}
 	
 }

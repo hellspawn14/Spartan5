@@ -15,8 +15,9 @@
     <string name="txtDeporte">Seleccionar deporte o actividad</string>
     <string name="lblTituloActividad">Título del evento</string>
     <string name="lblLugarEvento">Lugar</string>
-    <string name="txtFecha">Seleccionar fecha y hora</string>
+    <string name="txtFecha">Seleccionar fecha</string>
     <string name="lblUbicacion">Ubicación</string>
+    <string name="cmdNoDeporte">Mostrar resultados para cualquier deporte</string>
     <string name="cmdUbicacion">Utilizar ubicación actual</string>
     <string name="cmdEnviarMensaje">Enviar mensaje con invitación</string>
     <string name="txtOferta">Incluir oferta publica</string>
@@ -33,5 +34,7 @@
     <string name="lblInvitados">Invitados al evento</string>
     <string name="cmdAgregarInvitados">Invitar amigos</string>
     <string name="cmdConfirmar">Terminar confirmación</string>
+    <string name="cmdAsistir">Asistir</string>
+    <string name="cmdNoFecha">Buscar eventos para cualquier fecha</string>
   
 </resources>

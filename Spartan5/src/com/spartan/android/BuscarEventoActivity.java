@@ -1,14 +1,24 @@
 package com.spartan.android;
+import java.util.ArrayList;
+
 import com.example.spartan5.R;
+import com.spartan.entidades.Evento;
+import com.spartan.entidades.Spartan;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
+import android.widget.CheckBox;
+import android.widget.DatePicker;
 import android.widget.ImageButton;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 /**
@@ -47,6 +57,33 @@ public class BuscarEventoActivity extends Activity
 	 */
 	private String sportKey; 
 	
+	/**
+	 * Checkbox para parametro cualquier deporte
+	 */
+	private CheckBox checkDeporte;
+	
+	/**
+	 * Checkbox para parametro ubicacion actual
+	 */
+	private CheckBox checkUbicacion;
+	
+	/**
+	 * Checkbox para parametro cualquier fecha
+	 */
+	private CheckBox checkFecha;
+	
+	/**
+	 * Fecha del evento
+	 */
+	private DatePicker fechaEvento;
+	
+	/**
+	 * Instancia de la clase principal
+	 */
+	private Spartan instanciaSpartan;
+	
+	
+	
 	//-----------------------------------------------------------------
 	//Constructores
 	//-----------------------------------------------------------------
@@ -59,6 +96,9 @@ public class BuscarEventoActivity extends Activity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_buscar_evento);
 		
+		//Carga los datos del recurso 
+		instanciaSpartan = Spartan.darInstancia(getApplicationContext()); 
+				
 		sportKey = "";
 		
 		btnSoccer = (ImageButton) findViewById(R.id.btnSoccer);
@@ -101,6 +141,11 @@ public class BuscarEventoActivity extends Activity
 			} 
 		});
 
+		//Inicializacion otros elementos
+		checkDeporte = (CheckBox) findViewById(R.id.checkDeporte);
+		checkUbicacion = (CheckBox) findViewById(R.id.checkUbicacion);
+		checkFecha = (CheckBox) findViewById(R.id.checkFecha);
+		fechaEvento = (DatePicker) findViewById(R.id.FechaEventoPicker);
 		initTouchListeners();
 	}
 
@@ -183,8 +228,49 @@ public class BuscarEventoActivity extends Activity
 	
 	public void goToResults(View w)
 	{
-		Intent intent = new Intent(getApplicationContext(), ResultadosBusquedaActivity.class);
-		startActivity(intent);
+		//Seleccion de parametros
+		
+		//Caso I -> Solo con la key 
+		if(!checkDeporte.isChecked() && !checkUbicacion.isChecked() && checkFecha.isChecked())
+		{
+			if (sportKey.equals(""))
+			{
+				this.showDialog("Oops", "Debe seleccionar un deporte antes de continuar");
+			}
+			
+			else
+			{
+				ArrayList <Evento> results = instanciaSpartan.searchByKey(sportKey);
+				Intent intent = new Intent(getApplicationContext(), ResultadosBusquedaActivity.class);
+				ArrayList <String> resultsStr = new ArrayList<String>();
+				Evento ev;
+				for (int i = 0; i < results.size(); i++)
+				{
+					ev = results.get(i);
+					resultsStr.add(ev.getIdEvento());
+				}
+				intent.putStringArrayListExtra("Resultados", resultsStr);
+				startActivity(intent);
+			}
+		}		
 	}
+	
+	private void showDialog(String title, String message)
+	{
+		AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+		alertDialog.setTitle(title);
+		alertDialog.setCancelable(false);
+		alertDialog.setMessage(message);
+		alertDialog.setPositiveButton("OK",new DialogInterface.OnClickListener() 
+		{
+			public void onClick(DialogInterface dialog,int id) 
+			{
+				
+			}
+		});
+		AlertDialog dialog= alertDialog.create();
+		dialog.show();
+	}
+
 
 }

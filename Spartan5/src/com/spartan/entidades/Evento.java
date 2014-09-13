@@ -1,6 +1,9 @@
 package com.spartan.entidades;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import android.util.Log;
 
 /**
  * Representa uno de los eventos del catalogo 
@@ -14,15 +17,31 @@ public class Evento
 	//-----------------------------------------------------------------
 	
 	/**
-	 * Evento publico
+	 * Nombre
 	 */
-	public final static String EVENTO_PRIV = "Privado";
+	public final static String NOMBRE = "Nombre: ";
 	
 	/**
-	 * Evento privado
+	 * Organizador
 	 */
-	public final static String EVENTO_PUBLICO = "Publico";
-
+	public final static String ORG = "Organizador: ";
+	
+	/**
+	 * Fecha
+	 */
+	public final static String FECHA = "Fecha: ";
+	
+	/**
+	 * Lugar
+	 */
+	public final static String LUGAR = "Lugar: ";
+	
+	/**
+	 * Formato de fecha
+	 */
+	public final static String FORMAT = "MM/dd/yyyy hh:mm:ss";
+			
+	
 	//-----------------------------------------------------------------
 	//Atributos
 	//-----------------------------------------------------------------
@@ -33,7 +52,7 @@ public class Evento
 	private String idEvento;
 	
 	/**
-	 * Tipo de evento
+	 * Tipo de evento -> Deporte
 	 */
 	private String tipoEvento;
 
@@ -41,11 +60,6 @@ public class Evento
 	 * Titulo del evento
 	 */
 	private String tituloEvento;
-	
-	/**
-	 * Fecha del evento
-	 */
-	private Date fechaEvento;
 	
 	/**
 	 * Lugar del evento (direccion)
@@ -56,11 +70,50 @@ public class Evento
 	 * Organizador evento
 	 */
 	private String organizador;
-
+	
+	/**
+	 * Latitud 
+	 */
+	private Double latitud;
+	
+	/**
+	 * Longitud
+	 */
+	private Double longitud;
+	
+	/**
+	 * Fecha del evento
+	 */
+	private Date fechaEvento;
+	
+	private String strFecha;
+	
 	//-----------------------------------------------------------------
 	//Constructores
 	//-----------------------------------------------------------------
-	
+
+	/**
+	 * @param idEvento
+	 * @param tipoEvento
+	 * @param tituloEvento
+	 * @param strLugarEvento
+	 * @param organizador
+	 * @param latitud
+	 * @param longitud
+	 * @param fechaEvento
+	 */
+	public Evento(String idEvento, String tipoEvento, String tituloEvento,String strLugarEvento, String organizador, Double latitud,Double longitud, Date fechaEvento)
+	{
+		this.idEvento = idEvento;
+		this.tipoEvento = tipoEvento;
+		this.tituloEvento = tituloEvento;
+		this.strLugarEvento = strLugarEvento;
+		this.organizador = organizador;
+		this.latitud = latitud;
+		this.longitud = longitud;
+		this.fechaEvento = fechaEvento;
+		strFecha = this.formatDateToString(fechaEvento);
+	}
 
 	//-----------------------------------------------------------------
 	//Metodos
@@ -162,6 +215,27 @@ public class Evento
 		this.organizador = organizador;
 	}
 	
+	public String formatDateToString(Date d)
+	{
+		SimpleDateFormat dt = new SimpleDateFormat(FORMAT);
+		String ans = "";
+		ans = dt.format(d);
+		return ans;
+	}
+	
+	/**
+	 * Retorna una representacion de strings del evento con los datos basicos 
+	 * @return representacion de strings del evento con los datos basicos 
+	 */
+	public String getInformationStr()
+	{
+		String ans = NOMBRE + tituloEvento + "\n" + ORG + organizador + "\n" + FECHA + strFecha + "\n" + LUGAR + strLugarEvento;
+		//Nombre: Cursos de... 
+		//Organizador: Uniandes
+		//Fecha: 09/13/2014 15:30:00
+		Log.d("HELLSPAWN", ans);
+		return ans;
+	}
 	
 	
 }

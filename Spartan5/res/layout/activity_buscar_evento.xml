@@ -64,6 +64,13 @@
 	</LinearLayout>
 	<View style="@style/Divider"/>
 
+	<CheckBox
+	    android:id="@+id/checkDeporte"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="@string/cmdNoDeporte"
+	    android:textColor="@color/white" />
+
 	<TextView
         android:id="@+id/textView8"
         android:layout_width="match_parent"
@@ -91,14 +98,14 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_weight="1"
         android:orientation="vertical"  
 	    android:background="@color/btnBackground">
 
         <DatePicker
-            android:id="@+id/datePicker1"
+            android:id="@+id/FechaEventoPicker"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -107,12 +114,13 @@
         
         <View style="@style/Divider"/>
 
-        <TimePicker
-            android:id="@+id/timePicker1"
-            android:layout_width="wrap_content"
+        
+
+        <CheckBox
+            android:id="@+id/checkFecha"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"/>
+            android:text="@string/cmdNoFecha" />
 
     </LinearLayout>
     

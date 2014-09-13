@@ -56,11 +56,6 @@ public class Usuario
 	private ArrayList <Asistencia> asistencias;
 	
 	/**
-	 * Lista de eventos creados por el usuario
-	 */
-	private ArrayList <Evento> eventosUsuario;
-	
-	/**
 	 * Numero de encuentros de futbol
 	 */
 	private int nFutbol;

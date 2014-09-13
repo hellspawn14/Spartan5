@@ -34,6 +34,11 @@ public class Spartan
 	 */
 	private Usuario user;
 	
+	/**
+	 * Relacion con el componente de localizacion 
+	 */
+	private LocationComponent location;
+	
 	//-----------------------------------------------------------------
 	//Constructores
 	//-----------------------------------------------------------------

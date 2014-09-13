@@ -68,6 +68,13 @@
         android:layout_height="wrap_content"
         android:orientation="vertical" >
 
+        <CheckBox
+            android:id="@+id/checkEnviarMensajeSMS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cmdEnviarMensaje"
+            android:textColor="@color/white" />
+
         <Button
             android:id="@+id/button2"
             android:layout_width="match_parent"

@@ -28,15 +28,35 @@ public class Usuario
 	 * Lista de eventos creados por el usuario
 	 */
 	private ArrayList <EventoPrivado> eventosUsuario;
+	
+	/**
+	 * Puntaje del usuario
+	 */
+	private double userScore;
 	 
+	/**
+	 * Nivel del usuario
+	 */
+	private String userStatus;
+	
 	//-----------------------------------------------------------------
 	//Constructores
 	//-----------------------------------------------------------------
 	
-
+	public Usuario()
+	{
+		
+	}
+	
 	//-----------------------------------------------------------------
 	//Metodos
 	//-----------------------------------------------------------------
+	
+	private void readUserData()
+	{
+		
+	}
+	
 	
 
 }

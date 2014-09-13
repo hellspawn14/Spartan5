@@ -4,7 +4,7 @@ package com.spartan.entidades;
  * Representa uno de los eventos del catalogo 
  * @author hellspawn
  */
-public class Evento 
+public interface Evento 
 {
 	
 	//-----------------------------------------------------------------

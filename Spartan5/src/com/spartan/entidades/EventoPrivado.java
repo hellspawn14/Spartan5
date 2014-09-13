@@ -1,6 +1,6 @@
 package com.spartan.entidades;
 
-public class EventoPrivado extends Evento
+public class EventoPrivado implements Evento
 {
 	
 	//-----------------------------------------------------------------

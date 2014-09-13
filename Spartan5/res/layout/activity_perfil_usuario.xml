@@ -7,7 +7,7 @@
 
     <!-- Status del juegador -->
     <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/imgBadge"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:src="@drawable/badge_sample" />

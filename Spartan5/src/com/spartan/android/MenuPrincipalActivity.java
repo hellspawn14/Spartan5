@@ -22,10 +22,6 @@ import android.graphics.PorterDuff;
 public class MenuPrincipalActivity extends Activity
 {
 	//-----------------------------------------------------------------
-	//Constantes
-	//-----------------------------------------------------------------
-
-	//-----------------------------------------------------------------
 	//Atributos
 	//-----------------------------------------------------------------
 
@@ -64,6 +60,21 @@ public class MenuPrincipalActivity extends Activity
 	 */
 	private ImageButton btnBadge;
 	
+	/**
+	 * Calificacion del jugador
+	 */
+	private float calificacion;
+	
+	/**
+	 * Id del recurso
+	 */
+	private int recursoImagen;
+	
+	/**
+	 * Nivel del jugador
+	 */
+	private String nvlJugador;
+	
 	//-----------------------------------------------------------------
 	//Constructores
 	//-----------------------------------------------------------------
@@ -98,12 +109,12 @@ public class MenuPrincipalActivity extends Activity
 		txtVoley.setText(instanciaSpartan.darUsuario().getVoley() + "");
 		txtTennis.setText(instanciaSpartan.darUsuario().getTennis() + "");
 		
-		float rating = Float.parseFloat(instanciaSpartan.darUsuario().getScore() + "");
-		calificacionJugador.setRating(rating);
+		calificacion = Float.parseFloat(instanciaSpartan.darUsuario().getScore() + "");
+		calificacionJugador.setRating(calificacion);
 		
-		String nvlUsuario = instanciaSpartan.darUsuario().getStatus();
-		int id = getStatusImg(nvlUsuario);
-		btnBadge.setImageResource(id);
+		nvlJugador = instanciaSpartan.darUsuario().getStatus();
+		recursoImagen = getStatusImg(nvlJugador);
+		btnBadge.setImageResource(recursoImagen);
 	}
 	
 	//-----------------------------------------------------------------
@@ -147,6 +158,14 @@ public class MenuPrincipalActivity extends Activity
 	public void verPerfil(View w)
 	{
 		Intent intent = new Intent(getApplicationContext(), VerPerfilActivity.class);
+		//Envia la informacion a la vista
+		intent.putExtra("Calificacion", calificacion);
+		intent.putExtra("RecursoImg", recursoImagen);
+		intent.putExtra("NivelJugador", nvlJugador);
+		intent.putExtra("Futbol", txtFutbol.getText());
+		intent.putExtra("Basket", txtBasket.getText());
+		intent.putExtra("Voley", txtVoley.getText());
+		intent.putExtra("Tenis", txtTennis.getText());
 		startActivity(intent);
 	}
 	

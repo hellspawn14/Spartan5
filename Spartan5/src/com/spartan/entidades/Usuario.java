@@ -123,7 +123,7 @@ public class Usuario
 			while( !linea.equals(END_FILE) )
 			{
 				userScore = Double.parseDouble(linea.split(";")[0].split("=")[1]);
-				nFutbol = Integer.parseInt(linea.split(";")[1].split("=")[1]);
+				setFutbol(Integer.parseInt(linea.split(";")[1].split("=")[1]));
 				nBasket = Integer.parseInt(linea.split(";")[2].split("=")[1]);
 				nVoley = Integer.parseInt(linea.split(";")[3].split("=")[1]);
 				nTennis = Integer.parseInt(linea.split(";")[4].split("=")[1]);
@@ -166,7 +166,75 @@ public class Usuario
 	private void writeUserData(double score, int nFut, int nBask, int nVol, int nTen)
 	{
 		String strCadena = STR_SCORE + score + ";" + STR_FUTBOL + nFut + ";" + STR_BASKET + nBask + ";" + STR_VOLEY + nVol + ";" + STR_TENIS + nTen;
-		
+	}
+
+	//-----------------------------------------------------------------
+	//Getters & Setters 
+	//-----------------------------------------------------------------
+
+	
+	/**
+	 * @return the nFutbol
+	 */
+	public int getFutbol() 
+	{
+		return nFutbol;
+	}
+
+	/**
+	 * @return the nBasket
+	 */
+	public int getnBasket() 
+	{
+		return nBasket;
+	}
+
+	/**
+	 * @param nBasket the nBasket to set
+	 */
+	public void setnBasket(int nBasket)
+	{
+		this.nBasket = nBasket;
+	}
+
+	/**
+	 * @return the nVoley
+	 */
+	public int getnVoley() 
+	{
+		return nVoley;
+	}
+
+	/**
+	 * @param nVoley the nVoley to set
+	 */
+	public void setnVoley(int nVoley) 
+	{
+		this.nVoley = nVoley;
+	}
+
+	/**
+	 * @return the nTennis
+	 */
+	public int getnTennis() 
+	{
+		return nTennis;
+	}
+
+	/**
+	 * @param nTennis the nTennis to set
+	 */
+	public void setnTennis(int nTennis) 
+	{
+		this.nTennis = nTennis;
+	}
+
+	/**
+	 * @param nFutbol the nFutbol to set
+	 */
+	public void setFutbol(int nFutbol) 
+	{
+		this.nFutbol = nFutbol;
 	}
 	
 	

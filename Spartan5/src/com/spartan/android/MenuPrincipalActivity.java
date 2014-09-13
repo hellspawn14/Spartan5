@@ -1,6 +1,7 @@
 package com.spartan.android;
 
 import com.example.spartan5.R;
+import com.spartan.entidades.Spartan;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,6 +10,7 @@ import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RatingBar;
+import android.widget.TextView;
 import android.graphics.PorterDuff;
 
 /**
@@ -30,6 +32,15 @@ public class MenuPrincipalActivity extends Activity
 	 */
 	RatingBar calificacionJugador;
 	
+	/**
+	 * Instancia de la aplicacion 
+	 */
+	private Spartan instanciaSpartan; 
+	
+	private TextView txtFutbol;
+	
+	private TextView txtBasket;
+	
 	//-----------------------------------------------------------------
 	//Constructores
 	//-----------------------------------------------------------------
@@ -42,11 +53,16 @@ public class MenuPrincipalActivity extends Activity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_menu_principal);
 		
+		//Inicializa el rating bar 
 		calificacionJugador = (RatingBar) findViewById(R.id.estadisticasJuegador);
 		LayerDrawable stars = (LayerDrawable) calificacionJugador.getProgressDrawable();
 		stars.getDrawable(0).setColorFilter(Color.GRAY, PorterDuff.Mode.SRC_ATOP);
-		//stars.getDrawable(1).setColorFilter(Color.RED, PorterDuff.Mode.SRC_ATOP);
 		stars.getDrawable(2).setColorFilter(Color.YELLOW, PorterDuff.Mode.SRC_ATOP);
+		
+		//Carga los datos del recurso 
+		instanciaSpartan = Spartan.darInstancia(getApplicationContext()); 
+		
+		
 	}
 	
 	//-----------------------------------------------------------------

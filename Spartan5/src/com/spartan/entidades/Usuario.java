@@ -122,7 +122,7 @@ public class Usuario
 			{
 				userScore = Double.parseDouble(linea.split(";")[0].split("=")[1]);
 				Log.d("HELLSPAWN", userScore + "");
-				nFutbol = Integer.parseInt(linea.split(";")[2].split("=")[1]);
+				nFutbol = Integer.parseInt(linea.split(";")[1].split("=")[1]);
 				nBasket = Integer.parseInt(linea.split(";")[2].split("=")[1]);
 				nVoley = Integer.parseInt(linea.split(";")[3].split("=")[1]);
 				nTennis = Integer.parseInt(linea.split(";")[4].split("=")[1]);

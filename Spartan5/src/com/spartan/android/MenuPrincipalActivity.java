@@ -8,7 +8,9 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.graphics.PorterDuff;
@@ -37,13 +39,30 @@ public class MenuPrincipalActivity extends Activity
 	 */
 	private Spartan instanciaSpartan; 
 	
+	/**
+	 * Numero de encuentros de futbol
+	 */
 	private TextView txtFutbol;
-	
+
+	/**
+	 * Numero de encuentros de basket
+	 */
 	private TextView txtBasket;
 	
+	/**
+	 * Numero de encuentros de voleybol
+	 */
 	private TextView txtVoley;
 	
+	/**
+	 * Numero de encuentros de tenis
+	 */
 	private TextView txtTennis;
+	
+	/**
+	 * Boton con el nivel del jugador
+	 */
+	private ImageButton btnBadge;
 	
 	//-----------------------------------------------------------------
 	//Constructores
@@ -68,6 +87,7 @@ public class MenuPrincipalActivity extends Activity
 		txtBasket = (TextView) findViewById(R.id.numBasket);
 		txtVoley = (TextView) findViewById(R.id.numVoley);
 		txtTennis = (TextView) findViewById(R.id.numTennis);
+		btnBadge = (ImageButton) findViewById(R.id.imagenBadge);
 		
 		//Carga los datos del recurso 
 		instanciaSpartan = Spartan.darInstancia(getApplicationContext()); 
@@ -77,6 +97,13 @@ public class MenuPrincipalActivity extends Activity
 		txtBasket.setText(instanciaSpartan.darUsuario().getBasket() + "");
 		txtVoley.setText(instanciaSpartan.darUsuario().getVoley() + "");
 		txtTennis.setText(instanciaSpartan.darUsuario().getTennis() + "");
+		
+		float rating = Float.parseFloat(instanciaSpartan.darUsuario().getScore() + "");
+		calificacionJugador.setRating(rating);
+		
+		String nvlUsuario = instanciaSpartan.darUsuario().getStatus();
+		int id = getStatusImg(nvlUsuario);
+		btnBadge.setImageResource(id);
 	}
 	
 	//-----------------------------------------------------------------
@@ -121,6 +148,32 @@ public class MenuPrincipalActivity extends Activity
 	{
 		Intent intent = new Intent(getApplicationContext(), VerPerfilActivity.class);
 		startActivity(intent);
+	}
+	
+	/**
+	 * Retorna el identificador de la imagen de la insignia segun el status
+	 * @param status - Es el status del jugador
+	 * @return - ID del recurso
+	 */
+	public int getStatusImg(String status)
+	{
+		if (status == com.spartan.recursos.StatusJugador.NOOB)
+		{
+			return R.drawable.badge_noob;
+		}
+		
+		else if(status == com.spartan.recursos.StatusJugador.PIBE)
+		{
+			return R.drawable.badge_pibe;
+		}
+		else if(status == com.spartan.recursos.StatusJugador.TRONCO)
+		{
+			return R.drawable.badge_tronco;
+		}
+		else
+		{
+			return R.drawable.badge_spartan;
+		}
 	}
 	
 }

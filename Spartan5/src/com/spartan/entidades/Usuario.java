@@ -45,10 +45,6 @@ public class Usuario
 	 */
 	public final static String STR_SCORE = "score=";
 	
-	/**
-	 * Fin de los datos
-	 */
-	public final static String END_FILE = "** Fin datos **";
 	
 	//-----------------------------------------------------------------
 	//Atributos
@@ -241,8 +237,19 @@ public class Usuario
 		this.nTennis = nTennis;
 	}
 
-
+	/**
+	 * @return the userStatus
+	 */
+	public String getStatus()
+	{
+		return userStatus;
+	}
 	
-	
-
+	/**
+	 * @return the userScore
+	 */
+	public Double getScore()
+	{
+		return userScore;
+	}
 }

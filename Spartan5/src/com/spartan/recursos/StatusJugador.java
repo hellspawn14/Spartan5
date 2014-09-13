@@ -23,11 +23,11 @@ public class StatusJugador
 	/**
 	 * Score 3.5 - 4.5
 	 */
-	public static String BRO = "Capo";
+	public static String PIBE = "El Pibe del barrio";
 	
 	/**
 	 * Score 4.5 - 5
 	 */
-	public static String GOD = "Vos sos lo más grande"; 
+	public static String SPARTAN = "Spartan"; 
 
 }

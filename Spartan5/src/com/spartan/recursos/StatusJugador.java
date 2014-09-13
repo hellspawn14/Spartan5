@@ -7,27 +7,30 @@ package com.spartan.recursos;
 public class StatusJugador 
 {
 	//-----------------------------------------------------------------
-	//Constantes
+	//Constantes detección de status
 	//-----------------------------------------------------------------
 	
 	/**
 	 * Score 0 - 2
 	 */
-	public static String TRONCO = "Tronco";
+	public final static String TRONCO = "Tronco";
 	
 	/**
 	 * Score 2 - 3.5
 	 */
-	public static String NOOB = "Noob";
+	public final static String NOOB = "Noob";
 	
 	/**
 	 * Score 3.5 - 4.5
 	 */
-	public static String PIBE = "El Pibe del barrio";
+	public final static String PIBE = "El Pibe del barrio";
 	
 	/**
 	 * Score 4.5 - 5
 	 */
-	public static String SPARTAN = "Spartan"; 
+	public final static String SPARTAN = "Spartan"; 
+	
+
+
 
 }

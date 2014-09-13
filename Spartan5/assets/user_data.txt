@@ -1,8 +1,2 @@
-//Datos del usuario
-//Puntaje 0 - 5
-score=3.5
-//Juegos tomados
-futbol=1
-basket=6
-voley=2
-tenis=5
+score=3.5;futbol=1;basket=6;voley=2;tenis=5
+** Fin datos **

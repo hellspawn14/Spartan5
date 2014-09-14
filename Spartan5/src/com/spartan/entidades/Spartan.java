@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import android.content.Context;
+import android.text.format.DateUtils;
 import android.util.Log;
 
 /**
@@ -27,6 +28,11 @@ public class Spartan
 	 * Formato de fecha
 	 */
 	public final static String FORMAT = "MM/dd/yyyy hh:mm:ss";
+	
+	/**
+	 * Formato para la comparacion
+	 */
+	public final static String FORMAT_COMPARE = "MM/dd/yyyy";
 	//-----------------------------------------------------------------
 	//Atributos
 	//-----------------------------------------------------------------
@@ -36,6 +42,9 @@ public class Spartan
 	 */
 	private ArrayList <Evento> catalogoEventos;
 	
+	/**
+	 * Catalogo de eventos privados
+	 */
 	private ArrayList <Evento> eventosPrivados;
 	
 	/**
@@ -53,6 +62,9 @@ public class Spartan
 	 */
 	private LocationComponent location;
 	
+	/**
+	 * Contexto de la aplicacion
+	 */
 	private Context contexto;
 	
 	//-----------------------------------------------------------------
@@ -121,7 +133,6 @@ public class Spartan
 			SimpleDateFormat dt = new SimpleDateFormat(FORMAT);
 			Evento event;
 		
-			Log.d("HELLSPAWN", linea);
 			while(linea != null)
 			{
 				idEvento = linea.split(";")[0].split("=")[1];
@@ -138,7 +149,6 @@ public class Spartan
 					event = new Evento(idEvento,tipoEvento,tituloEvento,strLugarEvento,organizador,latitud,longitud,fechaEvento);
 					catalogoEventos.add(event);	
 					linea = br.readLine();
-					Log.d("Eventos hellspawn" , event.getIdEvento());
 					
 				}
 				catch(Exception ex)
@@ -166,6 +176,7 @@ public class Spartan
 		ArrayList <Evento> ans = new ArrayList<Evento>();
 		return ans;
 	}
+	
 	/**
 	 * Busca en la lista de eventos sin tener en cuenta la localizacion ni fecha
 	 * @param key - Es el deporte
@@ -184,6 +195,64 @@ public class Spartan
 				ans.add(e);
 			}
 		}
+		return ans;
+	}
+	
+	/**
+	 * Busca los eventos por fecha y por key
+	 * @param key - Es la key 
+	 * @param D - Es la fecha
+	 * @return - Lista de eventos
+	 */
+	public ArrayList <Evento> searchEventBySportAndDate(String key, String D)
+	{
+		ArrayList <Evento> ans = new ArrayList <Evento> ();
+		Evento e = null;
+		String dateEvento = "";
+		for (int i = 0; i < catalogoEventos.size(); i++)
+		{
+			e = catalogoEventos.get(i);
+			if (e.getTipoEvento().equals(key))
+			{
+				dateEvento = this.formatDateToString(e.getFechaEvento());
+				if (D.equals(dateEvento))
+				{
+					ans.add(e);
+				}
+			}
+		}
+		return ans;
+	}
+	
+	public ArrayList <Evento> searchByDate(String D)
+	{
+		ArrayList <Evento> ans = new ArrayList <Evento> ();
+		Evento e = null;
+		String dateEvento = "";
+		for (int i = 0; i < catalogoEventos.size(); i++)
+		{
+			e = catalogoEventos.get(i);
+			dateEvento = this.formatDateToString(e.getFechaEvento());
+			if (D.equals(dateEvento))
+			{
+				ans.add(e);
+			}
+			
+		}
+		return ans;
+
+	}
+	
+	/**
+	 * Formatea una fecha con el formato dado
+	 * @param d - Es la fecha
+	 * @return - Un String con la fecha del evento 
+	 */
+	public String formatDateToString(Date d)
+	{
+		SimpleDateFormat dt = new SimpleDateFormat(FORMAT_COMPARE);
+		String ans = "";
+		ans = dt.format(d);
 		return ans;
 	}
 	
@@ -242,6 +311,15 @@ public class Spartan
 	}
 	
 	/**
+	 * Retorna los eventos privados del usuario
+	 * @return
+	 */
+	public ArrayList <Evento> getPrivados()
+	{
+		return eventosPrivados;
+	}
+	
+	/**
 	 * Escribe los datos de una asistencia 
 	 * @param a
 	 */
@@ -267,9 +345,7 @@ public class Spartan
 		catch(Exception e)
 		{
 			
-		}
-
-		
+		}		
 	}
 	
 	

@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -73,6 +74,11 @@ public class DetalleEventoActivity extends Activity
 	 */
 	private ListView listaInvitados;
 	
+	/**
+	 * Items
+	 */
+	private String [] items;
+	
 	//-----------------------------------------------------------------
 	//Constructor
 	//-----------------------------------------------------------------
@@ -101,6 +107,14 @@ public class DetalleEventoActivity extends Activity
 		
 		//Inicializa la instancia 
 		instanciaSpartan = Spartan.darInstancia(getApplicationContext());
+		
+		//Inicializa la lista de invitados
+		items = new String [1];
+		items[0] = "No se ha compartido este evento";
+		listaInvitados = (ListView) findViewById(R.id.listaInvitadosDetalle);
+		ArrayAdapter<String> adapter= new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,android.R.id.text1,items);
+		listaInvitados.setAdapter(adapter);	
+		
 	}
 	
 	//-----------------------------------------------------------------
@@ -149,6 +163,10 @@ public class DetalleEventoActivity extends Activity
 						numeroTelefonicoContacto = e.getMessage();
 						//showDialog(DIALOGO_ERROR);
 					}
+					String strContacto = invitado + ": " + numeroTelefonicoContacto;
+					items[0] = strContacto;
+					ArrayAdapter<String> adapter= new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,android.R.id.text1,items);
+					listaInvitados.setAdapter(adapter);	
 					//compartidaCon.setText(nombreContacto);
 				}
 			}

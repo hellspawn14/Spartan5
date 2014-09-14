@@ -1,17 +1,12 @@
 package com.spartan.android;
 
 import android.app.Activity;
-import android.app.PendingIntent;
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.telephony.SmsManager;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
@@ -169,7 +164,6 @@ public class DetalleEventoActivity extends Activity
 					} catch (Exception e) 
 					{
 						numeroTelefonicoContacto = e.getMessage();
-						//showDialog(DIALOGO_ERROR);
 					}
 					if (numeroTelefonicoContacto == null)
 					{
@@ -228,9 +222,7 @@ public class DetalleEventoActivity extends Activity
 	public void confirmarAsistencia(View w)
 	{
 		String idEventoRegistrar = identificadorEvento.getText().toString().split(":")[1].trim();
-		Log.d("Registrar evento op", idEventoRegistrar);
 		Evento e = instanciaSpartan.getEventById(idEventoRegistrar);
-		Log.d("Registrar evento res", e.getIdEvento());
 		if (e != null)
 		{
 			int idAsistencia = instanciaSpartan.darUsuario().getAsistencias().size();

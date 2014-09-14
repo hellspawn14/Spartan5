@@ -24,6 +24,7 @@
     <string name="txtResultados">Resultados de busqueda</string>
     <string name="txtConfirmarEvento">Confirmación de evento</string>
     <string name="txtDetalleEvento">Detalle del evento</string>
+    <string name="txtDetalleAsistencia">Detalle de la asistencia</string>
 	<string name="lblFutbol">Fútbol</string>
     <string name="lblBasket">Baloncesto</string>
     <string name="lblVoley">Voleybol</string>
@@ -36,6 +37,8 @@
     <string name="cmdAgregarInvitados">Invitar amigos</string>
     <string name="cmdConfirmar">Terminar confirmación</string>
     <string name="cmdAsistir">Asistir</string>
+    <string name="cmdCancelar">Cancelar</string>
+    <string name="cmdYaAsisti">Check in</string>
     <string name="cmdNoFecha">Buscar eventos para cualquier fecha</string>
   
 </resources>

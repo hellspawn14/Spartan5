@@ -97,6 +97,7 @@ public class Usuario
 	{
 		readUserData(c);
 		setUserStatus();
+		asistencias = new ArrayList <Asistencia>();
 	}
 	
 	//-----------------------------------------------------------------
@@ -252,4 +253,14 @@ public class Usuario
 	{
 		return userScore;
 	}
+	
+	/**
+	 * Retorna una lista con todas las asistencias
+	 * @return
+	 */
+	public ArrayList<Asistencia> getAsistencias()
+	{
+		return asistencias;
+	}		
+	
 }

@@ -1,7 +1,10 @@
 package com.spartan.entidades;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -48,6 +51,8 @@ public class Spartan
 	 */
 	private LocationComponent location;
 	
+	private Context contexto;
+	
 	//-----------------------------------------------------------------
 	//Constructores
 	//-----------------------------------------------------------------
@@ -58,6 +63,7 @@ public class Spartan
 	 */
 	public Spartan (Context c)
 	{
+		contexto = c;
 		user = new Usuario(c);
 		catalogoEventos = new ArrayList<Evento>();
 		loadEvents(c);
@@ -180,6 +186,25 @@ public class Spartan
 	}
 	
 	/**
+	 * Retorna un evento dado su id 
+	 * @param id - Id del evento 
+	 * @return - El evento o null si no se encontro
+	 */
+	public Evento getEventById(String id)
+	{
+		Evento e = null;
+		for (int i = 0; i < catalogoEventos.size(); i++)
+		{
+			e = catalogoEventos.get(i);
+			if (e.getIdEvento().equals(id))
+			{
+				return e;
+			}
+		}
+		return e;
+	}
+	
+	/**
 	 * Busca eventos sin tener en cuenta el deporte, la ubicacion y la hora
 	 * @return
 	 */
@@ -214,6 +239,36 @@ public class Spartan
 		return ans;
 	}
 	
+	/**
+	 * Escribe los datos de una asistencia 
+	 * @param a
+	 */
+	//TODO
+	public void registrarAsistencias(Asistencia a)
+	{
+		try
+		{
+			BufferedReader br = new BufferedReader(new InputStreamReader(contexto.getResources().getAssets().open("assistence_data.txt")));
+			String linea = br.readLine();
+			String toSave = "";
+			while(linea != null)
+			{
+				//Concatena la informacion
+				toSave = toSave + linea;
+			}
+			
+			FileWriter out = new FileWriter(new File(contexto.getFilesDir(), "assistence_data.txt"));
+			String data = "\n" + a.getStringToSave();
+            out.write(data);
+            out.close();
+		}
+		catch(Exception e)
+		{
+			
+		}
+
+		
+	}
 	
 	
 	

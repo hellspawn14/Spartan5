@@ -2,13 +2,19 @@ package com.spartan.android;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.spartan5.R;
+import com.spartan.entidades.Asistencia;
+import com.spartan.entidades.Evento;
+import com.spartan.entidades.Spartan;
 
 public class DetalleEventoActivity extends Activity
 {
@@ -16,6 +22,7 @@ public class DetalleEventoActivity extends Activity
 	//Constantes
 	//-----------------------------------------------------------------
 	
+	public final static int PICK_CONTACT = 1;
 	//-----------------------------------------------------------------
 	//Atributos
 	//-----------------------------------------------------------------
@@ -45,6 +52,16 @@ public class DetalleEventoActivity extends Activity
 	 */
 	private ImageView imgEvento;
 	
+	/**
+	 * Instancia de la clase principal
+	 */
+	private Spartan instanciaSpartan;
+	
+	/**
+	 * Lista de invitados a los eventos
+	 */
+	private String [] listaInvitados;
+	
 	//-----------------------------------------------------------------
 	//Constructor
 	//-----------------------------------------------------------------
@@ -70,6 +87,9 @@ public class DetalleEventoActivity extends Activity
 		fechaEvento.setText("Fecha: " + intent.getExtras().getString("FechaEvento"));
 		identificadorEvento.setText("Identificador: " + intent.getExtras().getString("ID"));
 		imgEvento.setImageResource(this.getImgResource());
+		
+		//Inicializa la instancia 
+		instanciaSpartan = Spartan.darInstancia(getApplicationContext());
 	}
 	
 	//-----------------------------------------------------------------
@@ -81,14 +101,44 @@ public class DetalleEventoActivity extends Activity
 	 */
 	public void seleccionarContacto(View v)
 	{
-	
+		//Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
+		//startActivityForResult(intent,PICK_CONTACT);
 	}
+	
+	/**
+	 * Inicializa la lista de contactos
+	 */
+	public void onActivityResult(int reqCode, int resultCode, Intent data) 
+	{
+
+	}
+
+
 	
 	public void confirmarAsistencia(View w)
 	{
-		Intent intent = new Intent(getApplicationContext(), MenuPrincipalActivity.class);
-		startActivity(intent);
-		Toast.makeText(getApplicationContext(), "Evento confirmado", Toast.LENGTH_SHORT).show();
+		String idEventoRegistrar = identificadorEvento.getText().toString().split(":")[1];
+		//Lista vacia
+		listaInvitados = new String[0];
+		Evento e = instanciaSpartan.getEventById(idEventoRegistrar);
+		if (e != null)
+		{
+			Asistencia As = new Asistencia(e,listaInvitados);
+			//Registra la asistencia en el objeto
+			instanciaSpartan.darUsuario().getAsistencias().add(As);
+			//TODO CORREGIR 
+			//instanciaSpartan.registrarAsistencias(As);
+			Intent intent = new Intent(getApplicationContext(), MenuPrincipalActivity.class);
+			startActivity(intent);
+			Toast.makeText(getApplicationContext(), "Evento confirmado", Toast.LENGTH_SHORT).show();
+		}
+		
+		else
+		{
+			Toast.makeText(getApplicationContext(), "Evento no confirmado", Toast.LENGTH_SHORT).show();
+		}
+		
+		
 	}
 	
 	/**
@@ -119,6 +169,7 @@ public class DetalleEventoActivity extends Activity
 			return R.drawable.ball_tennis_button_focused;
 		}
 	}
+	
 
 
 }

@@ -94,5 +94,35 @@ public class Asistencia
 	{
 		this.invitados = invitados;
 	}
+	
+	//TODO
+	/**
+	 * Retorna una representacion en String para poner en la lista de asistencias 
+	 * @return
+	 */
+	public String getStringRepresentation()
+	{
+		return "";
+	}
+	
+	/**
+	 * Retorna una representacion de la asistencia para guardarla 
+	 * @return idEvento;estado;Invitados:X1,X2,X3....
+	 */
+	public String getStringToSave()
+	{
+		int est = 0;
+		if (estado == true)
+		{
+			est = 1;
+		}
+		String inv = "";
+		for (int i = 0; i < invitados.length - 1; i++)
+		{
+			inv = inv + invitados[i] + ",";
+		}
+		inv = inv + invitados[invitados.length];
+		return evento.getIdEvento() + ";" + est + ";" + "Invitados: " + inv; 
+	}
 
 }

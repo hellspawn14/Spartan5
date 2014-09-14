@@ -34,7 +34,7 @@
     <string name="txtAmigos">Invitar amigos</string>
     <string name="lblDatosEvento">Datos del evento</string>
     <string name="lblInvitados">Invitados al evento</string>
-    <string name="cmdAgregarInvitados">Invitar amigos</string>
+    <string name="cmdAgregarInvitados">Invitar amigo</string>
     <string name="cmdConfirmar">Terminar confirmación</string>
     <string name="cmdAsistir">Asistir</string>
     <string name="cmdCancelar">Cancelar</string>

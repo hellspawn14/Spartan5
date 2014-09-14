@@ -100,7 +100,7 @@
             android:layout_weight="1"
             android:textColor="@color/white"
             android:text="@string/cmdAgregarInvitados"
-            android:onClick="seleccionarContacto" />
+            android:onClick="seleccionarContactoDetalle" />
 
         <Button
             android:id="@+id/button1"

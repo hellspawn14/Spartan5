@@ -24,7 +24,7 @@ public class Asistencia
 	/**
 	 * Lista de invitados
 	 */
-	private String invitados[];
+	private String invitado;
 	
 	
 	//-----------------------------------------------------------------
@@ -36,11 +36,11 @@ public class Asistencia
 	 * @param e - Es el evento 
 	 * @param inv - Es la lista de invitados
 	 */
-	public Asistencia(Evento e, String inv[])
+	public Asistencia(Evento e, String in)
 	{
 		estado = false;
 		evento = e;
-		invitados = inv;
+		invitado = in;
 	}
 
 	//-----------------------------------------------------------------
@@ -82,17 +82,17 @@ public class Asistencia
 	/**
 	 * @return the invitados
 	 */
-	public String[] getInvitados() 
+	public String getInvitados() 
 	{
-		return invitados;
+		return invitado;
 	}
 
 	/**
 	 * @param invitados the invitados to set
 	 */
-	public void setInvitados(String[] invitados)
+	public void setInvitados(String invitados)
 	{
-		this.invitados = invitados;
+		this.invitado = invitados;
 	}
 	
 	//TODO
@@ -116,13 +116,7 @@ public class Asistencia
 		{
 			est = 1;
 		}
-		String inv = "";
-		for (int i = 0; i < invitados.length - 1; i++)
-		{
-			inv = inv + invitados[i] + ",";
-		}
-		inv = inv + invitados[invitados.length];
-		return evento.getIdEvento() + ";" + est + ";" + "Invitados: " + inv; 
+		return evento.getIdEvento() + ";" + est + ";" + "Invitado: " + invitado; 
 	}
 
 }

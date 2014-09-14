@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -58,9 +59,19 @@ public class DetalleEventoActivity extends Activity
 	private Spartan instanciaSpartan;
 	
 	/**
-	 * Lista de invitados a los eventos
+	 * Nombre y numero del invitado
 	 */
-	private String [] listaInvitados;
+	private String invitado;
+	
+	/**
+	 * Numero de telefono del contacto seleccionado
+	 */
+	private String numeroTelefonicoContacto;
+	
+	/**
+	 * Lista de invitados en la interfaz 
+	 */
+	private ListView listaInvitados;
 	
 	//-----------------------------------------------------------------
 	//Constructor
@@ -99,10 +110,10 @@ public class DetalleEventoActivity extends Activity
 	/**
 	 * Muestra la actividad de seleccion de contactos invocando las funciones del dispositivo
 	 */
-	public void seleccionarContacto(View v)
+	public void seleccionarContactoDetalle(View v)
 	{
-		//Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
-		//startActivityForResult(intent,PICK_CONTACT);
+		Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
+		startActivityForResult(intent,PICK_CONTACT);
 	}
 	
 	/**
@@ -110,20 +121,49 @@ public class DetalleEventoActivity extends Activity
 	 */
 	public void onActivityResult(int reqCode, int resultCode, Intent data) 
 	{
+		invitado = "";
+		if(resultCode == RESULT_OK){
+			if(reqCode == PICK_CONTACT)
+			{
+				Uri uriContacto = data.getData();
+				if(uriContacto != null)
+				{						
+					try 
+					{
+						String[] cols = {ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME};
+						Cursor cursor =  managedQuery(uriContacto, cols, null, null, null);
+						cursor.moveToFirst();
+						invitado = cursor.getString(0);
 
+						Uri phoneUri = ContactsContract.CommonDataKinds.Phone.CONTENT_URI;
+						String[] columnas = {ContactsContract.CommonDataKinds.Phone.NUMBER};
+						String seleccion = ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME + "='" + invitado + "'";
+						Cursor c = managedQuery(phoneUri,columnas,seleccion,null, null );
+						if(c.moveToFirst())
+						{
+							numeroTelefonicoContacto = c.getString(0);
+						}
+
+					} catch (Exception e) 
+					{
+						numeroTelefonicoContacto = e.getMessage();
+						//showDialog(DIALOGO_ERROR);
+					}
+					//compartidaCon.setText(nombreContacto);
+				}
+			}
+		}
 	}
-
 
 	
 	public void confirmarAsistencia(View w)
 	{
 		String idEventoRegistrar = identificadorEvento.getText().toString().split(":")[1];
 		//Lista vacia
-		listaInvitados = new String[0];
 		Evento e = instanciaSpartan.getEventById(idEventoRegistrar);
 		if (e != null)
 		{
-			Asistencia As = new Asistencia(e,listaInvitados);
+			Asistencia As = new Asistencia(e,invitado);
 			//Registra la asistencia en el objeto
 			instanciaSpartan.darUsuario().getAsistencias().add(As);
 			//TODO CORREGIR 

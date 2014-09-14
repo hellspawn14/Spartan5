@@ -75,8 +75,8 @@
         <ListView
             android:id="@+id/listaInvitadosDetalle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" >
+            android:layout_height="wrap_content" >
+
         </ListView>
 
     </LinearLayout>
@@ -103,7 +103,7 @@
             android:layout_weight="1"
             android:textColor="@color/white"
             android:text="@string/cmdEnviarMensaje"
-            android:onClick="seleccionarContactoDetalle" />
+            android:onClick="enviarMensaje" />
 
 
         <Button

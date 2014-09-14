@@ -32,9 +32,11 @@ public class Spartan
 	//-----------------------------------------------------------------
 
 	/**
-	 * Catalgo de eventos de la aplicacion
+	 * Catalgo de eventos publicos de la aplicacion
 	 */
 	private ArrayList <Evento> catalogoEventos;
+	
+	private ArrayList <Evento> eventosPrivados;
 	
 	/**
 	 * Instancia de la aplicacion 

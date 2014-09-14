@@ -225,6 +225,11 @@ public class Evento
 		this.organizador = organizador;
 	}
 	
+	/**
+	 * Formatea una fecha con el formato dado
+	 * @param d - Es la fecha
+	 * @return - Un String con la fecha del evento 
+	 */
 	public String formatDateToString(Date d)
 	{
 		SimpleDateFormat dt = new SimpleDateFormat(FORMAT);

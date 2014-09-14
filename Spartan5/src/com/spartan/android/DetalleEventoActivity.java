@@ -1,11 +1,16 @@
 package com.spartan.android;
 
 import android.app.Activity;
+import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.telephony.SmsManager;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
@@ -73,6 +78,7 @@ public class DetalleEventoActivity extends Activity
 	 * Lista de invitados en la interfaz 
 	 */
 	private ListView listaInvitados;
+	
 	
 	/**
 	 * Items
@@ -173,16 +179,49 @@ public class DetalleEventoActivity extends Activity
 		}
 	}
 	
+	/**
+	 * Envia mensajes SMS
+	 * @param w
+	 */
 	public void enviarMensaje(View w)
 	{
+		this.sendSMS();
+	}
+	
+	/**
+	 * Envia mensaje SMS
+	 */
+	private void sendSMS()
+	{
+		//Mensaje
+		String mensaje = "Hola, quiero invitarte a " + tituloEvento.getText() + "\n" + lugarEvento.getText() + "\n" + fechaEvento.getText();   
+		if (numeroTelefonicoContacto == null)
+		{
+			Toast.makeText(getApplicationContext(), "Debe introducir un numero valido", Toast.LENGTH_SHORT).show();
+		}
 		
+		else
+		{
+			 try 
+			 {
+			     SmsManager smsManager = SmsManager.getDefault();
+			     smsManager.sendTextMessage(numeroTelefonicoContacto, null, mensaje, null, null);
+			     Toast.makeText(getApplicationContext(), "Mensaje enviado",
+			     Toast.LENGTH_LONG).show();
+			  } 
+			 catch (Exception e) 
+			 {
+			     Toast.makeText(getApplicationContext(),"Mensaje no enviado",Toast.LENGTH_LONG).show();
+			     e.printStackTrace();    
+			 }
+			//Toast.makeText(getApplicationContext(), "Mensaje enviado", Toast.LENGTH_SHORT).show();
+		}
 	}
 
 	
 	public void confirmarAsistencia(View w)
 	{
 		String idEventoRegistrar = identificadorEvento.getText().toString().split(":")[1];
-		//Lista vacia
 		Evento e = instanciaSpartan.getEventById(idEventoRegistrar);
 		if (e != null)
 		{

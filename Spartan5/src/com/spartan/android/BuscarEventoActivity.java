@@ -59,12 +59,7 @@ public class BuscarEventoActivity extends Activity
 	 * Checkbox para parametro cualquier deporte
 	 */
 	private CheckBox checkDeporte;
-	
-	/**
-	 * Checkbox para parametro ubicacion actual
-	 */
-	private CheckBox checkUbicacion;
-	
+		
 	/**
 	 * Checkbox para parametro cualquier fecha
 	 */
@@ -141,7 +136,6 @@ public class BuscarEventoActivity extends Activity
 
 		//Inicializacion otros elementos
 		checkDeporte = (CheckBox) findViewById(R.id.checkDeporte);
-		checkUbicacion = (CheckBox) findViewById(R.id.checkUbicacion);
 		checkFecha = (CheckBox) findViewById(R.id.checkFecha);
 		fechaEvento = (DatePicker) findViewById(R.id.FechaEventoPicker);
 		initTouchListeners();
@@ -227,7 +221,7 @@ public class BuscarEventoActivity extends Activity
 	public void goToResults(View w)
 	{
 		//Caso I -> Solo con la key 
-		if(!checkDeporte.isChecked() && !checkUbicacion.isChecked() && checkFecha.isChecked())
+		if(!checkDeporte.isChecked() && checkFecha.isChecked())
 		{
 			
 			if (sportKey.equals(""))
@@ -243,12 +237,19 @@ public class BuscarEventoActivity extends Activity
 		}
 		
 		//Caso II -> Busca cualquier deporte, sin ubicacion sin hora
-		if (checkDeporte.isChecked() && !checkUbicacion.isChecked() && checkFecha.isChecked())
+		if (checkDeporte.isChecked() && checkFecha.isChecked())
 		{
 			ArrayList <Evento> results = instanciaSpartan.searchAnySportAnyWhereAnyTime();
 			packToIntent(results);
 		}
 		
+		//Caso III -> Busca un deporte teniendo en cuenta la fecha
+		if(!checkDeporte.isChecked() && !checkFecha.isChecked())
+		{
+			
+		}
+
+			
 	}
 	
 	private void packToIntent(ArrayList <Evento> results)

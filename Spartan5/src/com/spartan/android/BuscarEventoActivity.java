@@ -10,7 +10,6 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -18,7 +17,6 @@ import android.view.View.OnTouchListener;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.ImageButton;
-import android.widget.TimePicker;
 import android.widget.Toast;
 
 /**
@@ -228,11 +226,10 @@ public class BuscarEventoActivity extends Activity
 	
 	public void goToResults(View w)
 	{
-		//Seleccion de parametros
-		
 		//Caso I -> Solo con la key 
 		if(!checkDeporte.isChecked() && !checkUbicacion.isChecked() && checkFecha.isChecked())
 		{
+			
 			if (sportKey.equals(""))
 			{
 				this.showDialog("Oops", "Debe seleccionar un deporte antes de continuar");
@@ -241,18 +238,31 @@ public class BuscarEventoActivity extends Activity
 			else
 			{
 				ArrayList <Evento> results = instanciaSpartan.searchByKey(sportKey);
-				Intent intent = new Intent(getApplicationContext(), ResultadosBusquedaActivity.class);
-				ArrayList <String> resultsStr = new ArrayList<String>();
-				Evento ev;
-				for (int i = 0; i < results.size(); i++)
-				{
-					ev = results.get(i);
-					resultsStr.add(ev.getIdEvento());
-				}
-				intent.putStringArrayListExtra("Resultados", resultsStr);
-				startActivity(intent);
+				packToIntent(results);
 			}
-		}		
+		}
+		
+		//Caso II -> Busca cualquier deporte, sin ubicacion sin hora
+		if (checkDeporte.isChecked() && !checkUbicacion.isChecked() && checkFecha.isChecked())
+		{
+			ArrayList <Evento> results = instanciaSpartan.searchAnySportAnyWhereAnyTime();
+			packToIntent(results);
+		}
+		
+	}
+	
+	private void packToIntent(ArrayList <Evento> results)
+	{
+		Intent intent = new Intent(getApplicationContext(), ResultadosBusquedaActivity.class);
+		ArrayList <String> resultsStr = new ArrayList<String>();
+		Evento ev;
+		for (int i = 0; i < results.size(); i++)
+		{
+			ev = results.get(i);
+			resultsStr.add(ev.getIdEvento());
+		}
+		intent.putStringArrayListExtra("Resultados", resultsStr);
+		startActivity(intent);
 	}
 	
 	private void showDialog(String title, String message)

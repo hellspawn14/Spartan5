@@ -116,23 +116,14 @@ public class Spartan
 			Log.d("HELLSPAWN", linea);
 			while(linea != null)
 			{
-				Log.d("HELLSPAWN", linea);
 				idEvento = linea.split(";")[0].split("=")[1];
-				Log.d("HELLSPAWN", idEvento);
 				tipoEvento = linea.split(";")[1].split("=")[1];
-				Log.d("HELLSPAWN", tipoEvento);
 				tituloEvento = linea.split(";")[2].split("=")[1];
-				Log.d("HELLSPAWN", tituloEvento);
 				strLugarEvento = linea.split(";")[3].split("=")[1];
-				Log.d("HELLSPAWN", strLugarEvento);
 				organizador = linea.split(";")[4].split("=")[1];
-				Log.d("HELLSPAWN", organizador);
 				latitud = Double.parseDouble(linea.split(";")[5].split("=")[1].split(",")[0]);
-				Log.d("HELLSPAWN", latitud + "");
 				longitud = Double.parseDouble(linea.split(";")[5].split("=")[1].split(",")[1]);
-				Log.d("HELLSPAWN", longitud + "");
 				strFecha = linea.split(";")[6].split("=")[1];
-				Log.d("HELLSPAWN", strFecha);
 				try
 				{
 					fechaEvento = dt.parse(strFecha);
@@ -146,7 +137,6 @@ public class Spartan
 				{
 					Log.d("HELLSPAWN", "OLA KE ASE");
 				}
-				linea = br.readLine();
 				
 			}
 			br.close();		
@@ -187,6 +177,15 @@ public class Spartan
 			}
 		}
 		return ans;
+	}
+	
+	/**
+	 * Busca eventos sin tener en cuenta el deporte, la ubicacion y la hora
+	 * @return
+	 */
+	public ArrayList <Evento> searchAnySportAnyWhereAnyTime()
+	{
+		return catalogoEventos;
 	}
 	
 	/**

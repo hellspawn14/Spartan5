@@ -9,11 +9,8 @@ import com.spartan.entidades.Spartan;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
-import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 /**
  * Pantalla con los resultados de busqueda 
@@ -39,6 +36,9 @@ public class ResultadosBusquedaActivity extends Activity
 	 */
 	private Spartan instanciaSpartan;
 	
+	/**
+	 * Colección de elementos para poner en la lista
+	 */
 	private String [] items;
 	
 	
@@ -55,21 +55,32 @@ public class ResultadosBusquedaActivity extends Activity
 		setContentView(R.layout.activity_resultados_busqueda);
 		
 		instanciaSpartan = Spartan.darInstancia(getApplicationContext());
-		
-		
 		//Obtiene la informacion de la vista anterior
 		Intent intent = getIntent();
 		ArrayList <String> resultadosStr = intent.getStringArrayListExtra("Resultados");
-		
-		Toast.makeText(getApplicationContext(), resultadosStr.size() + "", Toast.LENGTH_SHORT).show();
-		
 		ArrayList <Evento> resultadosEve = this.retrieveEventosById(resultadosStr);
-		
 		items = instanciaSpartan.getEventListData(resultadosEve);
-		
 		ArrayAdapter<String> adapter= new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,android.R.id.text1,items);
 		resultadosBusqueda = (ListView) findViewById(R.id.listaResultados);
 		resultadosBusqueda.setAdapter(adapter);	
+		
+		
+		/**
+		 * listaItems.setOnItemClickListener(new OnItemClickListener() {
+			@SuppressWarnings("rawtypes")
+			public void onItemClick(AdapterView parent, View view,
+					int position, long id) {
+				String nombreProducto = ((TextView) view).getText().toString().split("Prese") [0].trim();
+				Log.d("Hellspawn", nombreProducto);
+				Intent intent = new Intent(getApplicationContext(), DetalleProductoActivity.class);
+				intent.putExtra("nombreProducto", nombreProducto);
+				startActivity(intent);
+			}
+
+		});
+
+		 */
+		
 	}
 	
 	//-----------------------------------------------------------------

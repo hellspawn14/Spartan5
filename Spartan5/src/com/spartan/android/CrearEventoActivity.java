@@ -9,7 +9,10 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 public class CrearEventoActivity extends Activity
@@ -47,6 +50,25 @@ public class CrearEventoActivity extends Activity
 	 */
 	private String sportKey; 
 	
+	/**
+	 * Campo para ingresar en nombre del evento
+	 */
+	private EditText nombreEvento;
+	
+	/**
+	 * Campo para ingresar el lugar 
+	 */
+	private EditText lugarEvento;
+	
+	/**
+	 * Fecha del evento
+	 */
+	private DatePicker fechaEvento;
+	
+	/**
+	 * Hora del evento 
+	 */
+	private TimePicker horaEvento;
 	
 	//-----------------------------------------------------------------
 	//Constructores
@@ -181,7 +203,10 @@ public class CrearEventoActivity extends Activity
             }
         });
 	}
-	
+	/**
+	 * Procesa los datos para crear el evento (el evento no ha sido creado)
+	 * @param w
+	 */
 	public void confirmarEvento(View w)
 	{
 		Intent intent = new Intent(getApplicationContext(), ConfirmarEventoActivity.class);

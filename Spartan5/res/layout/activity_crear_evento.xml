@@ -117,7 +117,7 @@
         android:orientation="vertical" >
 
         <DatePicker
-            android:id="@+id/datePicker1"
+            android:id="@+id/pickerFechaCrear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -127,7 +127,7 @@
         <View style="@style/Divider"/>
 
         <TimePicker
-            android:id="@+id/timePicker1"
+            android:id="@+id/pickerHoraCrear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

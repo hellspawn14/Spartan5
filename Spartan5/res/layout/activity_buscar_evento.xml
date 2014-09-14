@@ -129,6 +129,7 @@
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
 	    android:text="@string/cmdBuscar"
+	    android:textColor="@color/white"
 	    android:onClick="goToResults" />
 
 </LinearLayout>

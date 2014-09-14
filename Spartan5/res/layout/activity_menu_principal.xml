@@ -146,6 +146,7 @@
 			    android:layout_height="wrap_content"
 			    android:layout_weight="1"
 			    android:text="@string/cmdBuscar" 
+			    android:textColor="@color/white"
 			    android:onClick="buscarEvento" />
 			<Button
 			    android:id="@+id/button2"
@@ -153,6 +154,7 @@
 			    android:layout_height="wrap_content"
 			    android:layout_weight="1"
 			    android:text="@string/cmdCrear" 
+			    android:textColor="@color/white"
 			    android:onClick="crearEvento"/>
 			<Button
 			    android:id="@+id/button3"
@@ -160,6 +162,7 @@
 			    android:layout_height="wrap_content"
 			    android:layout_weight="1"
 			    android:text="@string/cmdCheckIn" 
+			    android:textColor="@color/white"
 			    android:onClick="checkIn"/>
 		</LinearLayout>		
 	</LinearLayout>

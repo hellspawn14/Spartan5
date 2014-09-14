@@ -172,6 +172,11 @@ public class DetalleEventoActivity extends Activity
 			}
 		}
 	}
+	
+	public void enviarMensaje(View w)
+	{
+		
+	}
 
 	
 	public void confirmarAsistencia(View w)

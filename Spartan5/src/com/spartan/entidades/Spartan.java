@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import android.content.Context;
-import android.text.format.DateUtils;
 import android.util.Log;
 
 /**
@@ -306,6 +305,23 @@ public class Spartan
 		{
 			ev = results.get(i);
 			ans[i] = ev.getInformationStr();
+		}
+		return ans;
+	}
+	
+	/**
+	 * Retorna la lista en strings de los eventos del resultado
+	 * @param results - Es la lista con los resultados 
+	 * @return - Lista de strings 
+	 */
+	public String [] getAssistenceListData(ArrayList <Asistencia> asis)
+	{
+		String [] ans = new String[asis.size()];
+		Asistencia As;
+		for (int i = 0; i < asis.size(); i++)
+		{
+			As = asis.get(i);
+			ans[i] = As.getStringRepresentation();
 		}
 		return ans;
 	}

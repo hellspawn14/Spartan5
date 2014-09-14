@@ -121,6 +121,7 @@ public class DetalleEventoActivity extends Activity
 		ArrayAdapter<String> adapter= new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,android.R.id.text1,items);
 		listaInvitados.setAdapter(adapter);	
 		
+		invitado = "No hay invitado";
 	}
 	
 	//-----------------------------------------------------------------
@@ -228,6 +229,7 @@ public class DetalleEventoActivity extends Activity
 			Asistencia As = new Asistencia(e,invitado);
 			//Registra la asistencia en el objeto
 			instanciaSpartan.darUsuario().getAsistencias().add(As);
+			
 			//TODO CORREGIR 
 			//instanciaSpartan.registrarAsistencias(As);
 			Intent intent = new Intent(getApplicationContext(), MenuPrincipalActivity.class);

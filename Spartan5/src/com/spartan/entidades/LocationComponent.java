@@ -12,18 +12,10 @@ import java.net.URL;
 import android.app.IntentService;
 import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.telephony.TelephonyManager;
 import android.telephony.gsm.GsmCellLocation;
 import android.util.Log;
-import android.app.IntentService;
-import android.app.PendingIntent;
-import android.content.Intent;
-import android.util.Log;
 
-import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.net.URL;
 
 /**
  * Representa al componente de localizacion

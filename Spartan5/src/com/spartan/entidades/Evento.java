@@ -3,7 +3,6 @@ package com.spartan.entidades;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import android.util.Log;
 
 /**
  * Representa uno de los eventos del catalogo 

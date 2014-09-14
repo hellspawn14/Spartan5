@@ -3,11 +3,9 @@ package com.spartan.entidades;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.GregorianCalendar;
 
 import android.content.Context;
-import android.util.Log;
+
 
 /**
  * Representa al usuario

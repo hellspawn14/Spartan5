@@ -5,14 +5,13 @@ package com.spartan.entidades;
  * @author hellspawn
  */
 public class Asistencia 
-{
-
+{	
 	//-----------------------------------------------------------------
 	//Atributos
 	//-----------------------------------------------------------------
 
 	/**
-	 * Indica si el usuario ya asistio o no al evento
+	 * Indica si el usuario ya asistio (true) o no al evento (false)
 	 */
 	private boolean estado;
 	
@@ -95,14 +94,23 @@ public class Asistencia
 		this.invitado = invitados;
 	}
 	
-	//TODO
 	/**
 	 * Retorna una representacion en String para poner en la lista de asistencias 
 	 * @return
 	 */
 	public String getStringRepresentation()
 	{
-		return "";
+		String asiste = "";
+		if (estado)
+		{
+			asiste = "Ya fuiste";
+		}
+		
+		else
+		{
+			asiste = "No has ido";
+		}
+		return evento.getInformationStr() + "\n" + asiste + "\n" + "Invitado: " + invitado;
 	}
 	
 	/**

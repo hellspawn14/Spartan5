@@ -1,5 +1,8 @@
 package com.spartan.android;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import com.example.spartan5.R;
 import com.spartan.entidades.Evento;
@@ -10,6 +13,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -218,6 +222,10 @@ public class BuscarEventoActivity extends Activity
         });
 	}
 	
+	/**
+	 * Muestra los resultados de la busqueda segun los parametros seleccionados en la vista
+	 * @param w
+	 */
 	public void goToResults(View w)
 	{
 		//Caso I -> Solo con la key 
@@ -246,12 +254,56 @@ public class BuscarEventoActivity extends Activity
 		//Caso III -> Busca un deporte teniendo en cuenta la fecha
 		if(!checkDeporte.isChecked() && !checkFecha.isChecked())
 		{
+			int day  = fechaEvento.getDayOfMonth();
+			int month= fechaEvento.getMonth() + 1;
+			int year = fechaEvento.getYear();
 			
+			//"MM/dd/yyyy"
+			String strMonth = "";
+			if (month < 10)
+			{
+				strMonth = "0" + month;
+			}
+			else
+			{
+				strMonth = month + "";
+			}
+			
+			String dateUsuario = strMonth + "/" + day + "/" + year;  
+			ArrayList <Evento> results = instanciaSpartan.searchEventBySportAndDate(sportKey, dateUsuario);
+			packToIntent(results);	
+		}
+		
+		//Caso IV -> Solo tiene en cuenta la fecha 
+		if (checkDeporte.isChecked() && !checkFecha.isSelected())
+		{
+			int day  = fechaEvento.getDayOfMonth();
+			int month= fechaEvento.getMonth() + 1;
+			int year = fechaEvento.getYear();
+			
+			//"MM/dd/yyyy"
+			String strMonth = "";
+			if (month < 10)
+			{
+				strMonth = "0" + month;
+			}
+			else
+			{
+				strMonth = month + "";
+			}
+			
+			String dateUsuario = strMonth + "/" + day + "/" + year;  
+			ArrayList <Evento> results = instanciaSpartan.searchByDate(dateUsuario);
+			packToIntent(results);
 		}
 
 			
 	}
 	
+	/**
+	 * Empaca una lista para enviarla por el intent
+	 * @param results - Es la lista con los eventos resultado
+	 */
 	private void packToIntent(ArrayList <Evento> results)
 	{
 		Intent intent = new Intent(getApplicationContext(), ResultadosBusquedaActivity.class);
@@ -266,6 +318,11 @@ public class BuscarEventoActivity extends Activity
 		startActivity(intent);
 	}
 	
+	/**
+	 * Muestra un dialogo
+	 * @param title
+	 * @param message
+	 */
 	private void showDialog(String title, String message)
 	{
 		AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);

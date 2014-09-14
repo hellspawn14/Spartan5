@@ -28,7 +28,7 @@ public class ConfirmarEventoActivity extends Activity
 	protected void onCreate(Bundle savedInstanceState) 
 	{
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_detalle_evento_resultados);
+		setContentView(R.layout.activity_confirmar_evento);
 	}
 	
 	//-----------------------------------------------------------------

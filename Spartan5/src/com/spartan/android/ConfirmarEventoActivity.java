@@ -28,7 +28,7 @@ public class ConfirmarEventoActivity extends Activity
 	protected void onCreate(Bundle savedInstanceState) 
 	{
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_confirmar_evento);
+		setContentView(R.layout.activity_detalle_evento_resultados);
 	}
 	
 	//-----------------------------------------------------------------
@@ -40,6 +40,7 @@ public class ConfirmarEventoActivity extends Activity
 	 */
 	public void seleccionarContacto(View v)
 	{
+		
 	}
 	
 	public void terminarConfirmacion(View w)

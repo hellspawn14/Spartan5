@@ -27,6 +27,11 @@ public class Evento
 	public final static String ORG = "Organizador: ";
 	
 	/**
+	 * Deporte
+	 */
+	public final static String DEPORTE = "Actividad: ";
+	
+	/**
 	 * Fecha
 	 */
 	public final static String FECHA = "Fecha: ";
@@ -39,7 +44,12 @@ public class Evento
 	/**
 	 * Formato de fecha
 	 */
-	public final static String FORMAT = "MM/dd/yyyy hh:mm:ss";
+	public final static String FORMAT = "MM/dd/yyyy hh-mm a";
+	
+	/**
+	 * Identificador del evento 
+	 */
+	public final static String ID = "Identificador: ";
 			
 	
 	//-----------------------------------------------------------------
@@ -229,11 +239,11 @@ public class Evento
 	 */
 	public String getInformationStr()
 	{
-		String ans = NOMBRE + tituloEvento + "\n" + ORG + organizador + "\n" + FECHA + strFecha + "\n" + LUGAR + strLugarEvento;
+		String ans = ID + idEvento + "\n" + DEPORTE + tipoEvento + "\n" + NOMBRE + tituloEvento + "\n" + ORG + organizador + "\n" + FECHA + strFecha + "\n" + LUGAR + strLugarEvento;
+		//Identificador: NN
 		//Nombre: Cursos de... 
 		//Organizador: Uniandes
 		//Fecha: 09/13/2014 15:30:00
-		Log.d("HELLSPAWN", ans);
 		return ans;
 	}
 	

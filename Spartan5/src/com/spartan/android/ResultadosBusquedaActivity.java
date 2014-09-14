@@ -9,8 +9,13 @@ import com.spartan.entidades.Spartan;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.AdapterView.OnItemClickListener;
 
 /**
  * Pantalla con los resultados de busqueda 
@@ -60,27 +65,30 @@ public class ResultadosBusquedaActivity extends Activity
 		ArrayList <String> resultadosStr = intent.getStringArrayListExtra("Resultados");
 		ArrayList <Evento> resultadosEve = this.retrieveEventosById(resultadosStr);
 		items = instanciaSpartan.getEventListData(resultadosEve);
-		ArrayAdapter<String> adapter= new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,android.R.id.text1,items);
 		resultadosBusqueda = (ListView) findViewById(R.id.listaResultados);
+		ArrayAdapter<String> adapter= new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,android.R.id.text1,items);
 		resultadosBusqueda.setAdapter(adapter);	
 		
 		
-		/**
-		 * listaItems.setOnItemClickListener(new OnItemClickListener() {
+		resultadosBusqueda.setOnItemClickListener(new OnItemClickListener() 
+		{
 			@SuppressWarnings("rawtypes")
-			public void onItemClick(AdapterView parent, View view,
-					int position, long id) {
-				String nombreProducto = ((TextView) view).getText().toString().split("Prese") [0].trim();
-				Log.d("Hellspawn", nombreProducto);
-				Intent intent = new Intent(getApplicationContext(), DetalleProductoActivity.class);
-				intent.putExtra("nombreProducto", nombreProducto);
+			public void onItemClick(AdapterView parent, View view,int position, long id) 
+			{
+				Intent intent = new Intent(getApplicationContext(), DetalleEventoActivity.class);
+				String idEvento = ((TextView) view).getText().toString().split("\n")[0].split(":")[1].trim();
+				intent.putExtra("ID", idEvento);
+				String actividad = ((TextView) view).getText().toString().split("\n")[1].split(":")[1].trim();
+				intent.putExtra("Actividad", actividad);
+				String nombre = ((TextView) view).getText().toString().split("\n")[2].split(":")[1].trim();
+				intent.putExtra("NombreEvento", nombre);
+				String fechaEvento = ((TextView) view).getText().toString().split("\n")[4].split(":")[1].trim();
+				intent.putExtra("FechaEvento", fechaEvento);
+				String lugarEvento = ((TextView) view).getText().toString().split("\n")[5].split(":")[1].trim();
+				intent.putExtra("LugarEvento", lugarEvento);
 				startActivity(intent);
 			}
-
-		});
-
-		 */
-		
+		});		
 	}
 	
 	//-----------------------------------------------------------------

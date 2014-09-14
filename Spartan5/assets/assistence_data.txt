@@ -1,6 +1,1 @@
-assistence_data
-Deporte
-Nombre evento
-Fecha y hora
-Lugar (direccion - coordenadas)
-Asistio ya o no
+idEvento;estado;Invitados:X1,X2,X3....

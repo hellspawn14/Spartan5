@@ -66,5 +66,12 @@
             android:screenOrientation="portrait"
             android:label="@string/txtConfirmarEvento">    
         </activity>
+        <!-- Crear evento -->
+        <activity
+            android:name="com.spartan.android.DetalleEventoActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/txtDetalleEvento">    
+        </activity>
+        
     </application>
 </manifest>

@@ -214,4 +214,6 @@ public class Spartan
 		return ans;
 	}
 	
+	
+	
 }

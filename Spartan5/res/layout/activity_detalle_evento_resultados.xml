@@ -6,7 +6,7 @@
     android:orientation="vertical" >
 
     <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/imgResultadoEvento"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:src="@drawable/ball_basket" />
@@ -21,7 +21,7 @@
         android:textColor="@color/white" />
 
     <TextView
-        android:id="@+id/lblTituloEvento"
+        android:id="@+id/lblResultadoTituloEvento"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -30,7 +30,7 @@
         android:textColor="@color/white" />
 
     <TextView
-        android:id="@+id/lblLugarEvento"
+        android:id="@+id/lblResultadoLugarEvento"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -39,13 +39,22 @@
         android:textColor="@color/white" />
 
     <TextView
-        android:id="@+id/lblHoraFechaEvento"
+        android:id="@+id/lblResultadoHoraFechaEvento"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Fecha y hora"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/lblResultadoIdentificador"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:text="Identificador"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <TextView
         android:id="@+id/textView5"
@@ -88,7 +97,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/cmdAsistir"
-            android:onClick="terminarConfirmacion" />
+            android:onClick="confirmarAsistencia" />
 
     </LinearLayout>
   

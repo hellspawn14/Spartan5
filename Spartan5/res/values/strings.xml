@@ -23,6 +23,7 @@
     <string name="txtOferta">Incluir oferta publica</string>
     <string name="txtResultados">Resultados de busqueda</string>
     <string name="txtConfirmarEvento">Confirmación de evento</string>
+    <string name="txtDetalleEvento">Detalle del evento</string>
 	<string name="lblFutbol">Fútbol</string>
     <string name="lblBasket">Baloncesto</string>
     <string name="lblVoley">Voleybol</string>

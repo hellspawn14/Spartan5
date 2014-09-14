@@ -131,6 +131,11 @@ public class Usuario
 		}
 	}
 	
+	private void readAssistenceData()
+	{
+		
+	}
+	
 	/**
 	 * Inicializa el status del usuario segun el score
 	 */

@@ -12,66 +12,66 @@
         android:icon="@drawable/spartan_launch_icon"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+          
         
-        <!-- Actividad de inicio -->
-        <activity 
-            android:name="com.spartan.android.SplashScreenActivity"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait"
-            android:theme="@style/generalnotitle">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <!-- Menu principal -->
-        <activity 
-            android:name="com.spartan.android.MenuPrincipalActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/generalnotitle">    
-        </activity>
-        <!-- Buscar evento -->
-        <activity
-            android:name="com.spartan.android.BuscarEventoActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/btnBuscar">    
-        </activity>
-        <!-- Resultados de la busqueda -->
-        <activity
-            android:name="com.spartan.android.ResultadosBusquedaActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/txtResultados">    
-        </activity>
-        <!-- Perfil del usuario -->
-        <activity
-            android:name="com.spartan.android.VerPerfilActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/lblPerfil">    
-        </activity>
-        <!-- Crear evento -->
-        <activity
-            android:name="com.spartan.android.CrearEventoActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/btnCrear">    
-        </activity>
-        <!-- Confirmar evento -->
-        <activity
-            android:name="com.spartan.android.CheckInActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/lblCheck">    
-        </activity>
-        <!-- Crear evento -->
-        <activity
-            android:name="com.spartan.android.ConfirmarEventoActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/txtConfirmarEvento">    
-        </activity>
-        <!-- Crear evento -->
-        <activity
-            android:name="com.spartan.android.DetalleEventoActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/txtDetalleEvento">    
-        </activity>
-        
+    	<!-- Actividad de inicio -->
+    	<activity 
+			android:name="com.spartan.android.SplashScreenActivity"
+        	android:label="@string/app_name"
+        	android:screenOrientation="portrait"
+       		android:theme="@style/generalnotitle">
+        	<intent-filter>
+        		<action android:name="android.intent.action.MAIN" />
+            		<category android:name="android.intent.category.LAUNCHER" />
+        	</intent-filter>
+		</activity>
+    	<!-- Menu principal -->
+    	<activity 
+			android:name="com.spartan.android.MenuPrincipalActivity"
+        	android:screenOrientation="portrait"
+        	android:theme="@style/generalnotitle">    
+    	</activity>
+    	<!-- Buscar evento -->
+    	<activity
+			android:name="com.spartan.android.BuscarEventoActivity"
+        	android:screenOrientation="portrait"
+        	android:label="@string/btnBuscar">    
+    	</activity>
+    	<!-- Resultados de la busqueda -->
+    	<activity
+			android:name="com.spartan.android.ResultadosBusquedaActivity"
+        	android:screenOrientation="portrait"
+        	android:label="@string/txtResultados">    
+    	</activity>
+    	<!-- Perfil del usuario -->
+    	<activity
+			android:name="com.spartan.android.VerPerfilActivity"
+        	android:screenOrientation="portrait"
+        	android:label="@string/lblPerfil">    
+		</activity>
+    	<!-- Crear evento -->
+    	<activity
+			android:name="com.spartan.android.CrearEventoActivity"
+        	android:screenOrientation="portrait"
+        	android:label="@string/btnCrear">    
+		</activity>
+    	<!-- Confirmar evento -->
+    	<activity
+			android:name="com.spartan.android.CheckInActivity"
+        	android:screenOrientation="portrait"
+        	android:label="@string/lblCheck">    
+    	</activity>
+    	<!-- Crear evento -->
+    	<activity
+			android:name="com.spartan.android.ConfirmarEventoActivity"
+        	android:screenOrientation="portrait"
+        	android:label="@string/txtConfirmarEvento">    
+    	</activity>
+    	<!-- Crear evento -->
+    	<activity
+    	    android:name="com.spartan.android.DetalleEventoActivity"
+        	android:screenOrientation="portrait"
+        	android:label="@string/txtDetalleEvento">    
+    	</activity>    
     </application>
 </manifest>

@@ -190,7 +190,6 @@ public class Spartan
 			e = catalogoEventos.get(i);
 			if (e.getTipoEvento().equals(key))
 			{
-				Log.d("Eventos hellspawn" , e.getIdEvento());
 				ans.add(e);
 			}
 		}

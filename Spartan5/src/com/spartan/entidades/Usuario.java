@@ -111,11 +111,9 @@ public class Usuario
 		{			  
 			BufferedReader br = new BufferedReader(new InputStreamReader(c.getResources().getAssets().open("user_data.txt")));
 			String linea = br.readLine();
-			//Log.d("HELLSPAWN", linea);
 			while(linea != null)
 			{
 				userScore = Double.parseDouble(linea.split(";")[0].split("=")[1]);
-				//Log.d("HELLSPAWN", userScore + "");
 				nFutbol = Integer.parseInt(linea.split(";")[1].split("=")[1]);
 				nBasket = Integer.parseInt(linea.split(";")[2].split("=")[1]);
 				nVoley = Integer.parseInt(linea.split(";")[3].split("=")[1]);

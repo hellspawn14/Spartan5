@@ -37,7 +37,7 @@
     <string name="cmdAgregarInvitados">Invitar amigo</string>
     <string name="cmdConfirmar">Terminar confirmación</string>
     <string name="cmdAsistir">Asistir</string>
-    <string name="cmdCancelar">Cancelar</string>
+    <string name="cmdCancelar">Cancelar asistencia</string>
     <string name="cmdYaAsisti">Check in</string>
     <string name="cmdNoFecha">Buscar eventos para cualquier fecha</string>
   

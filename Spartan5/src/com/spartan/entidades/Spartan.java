@@ -364,6 +364,74 @@ public class Spartan
 		}		
 	}
 	
+	/**
+	 * Retorna una asistencia dado su id 
+	 * @param idAsistencia - Es el identificador
+	 * @return La asistencia o null si no la encontro
+	 */
+	public Asistencia buscarAsistencia(int idAsistencia)
+	{
+		Asistencia A;
+		for (int i = 0; i < user.getAsistencias().size(); i++)
+		{
+			A = user.getAsistencias().get(i);
+			if (A.getIdAsistencia() == idAsistencia)
+			{
+				return A;
+			}
+		}
+		return null;
+	}
+	
+	/**
+	 * Cambia el estado de la asistencia
+	 * Modifica los demas aspectos del usuario 
+	 * @param A - Es la asistencia
+	 */
+	public void CheckInAsistencia(Asistencia A)
+	{
+		if (!A.isEstado())
+		{
+			A.setEstado(true);
+			String actividad = A.getEvento().getTipoEvento();
+			updateScore(actividad);
+		}
+		//Deja asi	
+	}
+	
+	/**
+	 * Elimina una asistencia dada
+	 * @param A
+	 */
+	public void EliminarAsistencia(Asistencia A)
+	{
+		user.getAsistencias().remove(A);
+	}
+	
+	/**
+	 * Actualiza el score 
+	 * @param actividad
+	 */
+	public void updateScore(String actividad)
+	{
+		if (actividad.equals(com.spartan.recursos.Eventos.SOCCER))
+		{
+			user.setFutbol(user.getFutbol() + 1);
+		}
+		else if (actividad.equals(com.spartan.recursos.Eventos.BASKET))
+		{
+			user.setBasket(user.getBasket() + 1);
+		}
+		else if (actividad.equals(com.spartan.recursos.Eventos.VOLEY))
+		{
+			user.setVoley(user.getVoley() + 1);
+		}
+		else
+		{
+			user.setTennis(user.getTennis() + 1);
+		}
+		user.recalcularScore();
+	}
 	
 	
 }

@@ -48,7 +48,7 @@ public class Evento
 	/**
 	 * Identificador del evento 
 	 */
-	public final static String ID = "Identificador: ";
+	public final static String ID = "Identificador evento: ";
 			
 	
 	//-----------------------------------------------------------------

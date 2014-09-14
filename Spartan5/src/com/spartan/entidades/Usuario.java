@@ -261,4 +261,22 @@ public class Usuario
 		return asistencias;
 	}		
 	
+	/**
+	 * Actualiza los scores
+	 */
+	public void recalcularScore()
+	{
+		double res = (nFutbol + nBasket + nVoley + nTennis)/5;
+		if (res <= 5)
+		{
+			userScore = res;
+		}
+		
+		else
+		{
+			userScore = 5;
+		}
+		setUserStatus();
+	}
+	
 }

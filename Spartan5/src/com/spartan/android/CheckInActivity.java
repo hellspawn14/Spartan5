@@ -9,6 +9,7 @@ import com.spartan.entidades.Spartan;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -63,7 +64,11 @@ public class CheckInActivity extends Activity
 			public void onItemClick(AdapterView parent, View view,int position, long id) 
 			{
 				Intent intent = new Intent(getApplicationContext(), DetalleAsistenciaActivity.class);
-				String idEvento = ((TextView) view).getText().toString().split("\n")[0].split(":")[1].trim();
+				
+				String extra = ((TextView) view).getText().toString();
+				Log.d("Hellspawn ->", extra);
+				
+				String idEvento = ((TextView) view).getText().toString().split("\n")[8].split(":")[1].trim();
 				intent.putExtra("ID", idEvento);
 				String actividad = ((TextView) view).getText().toString().split("\n")[1].split(":")[1].trim();
 				intent.putExtra("Actividad", actividad);
@@ -75,15 +80,11 @@ public class CheckInActivity extends Activity
 				intent.putExtra("LugarEvento", lugarEvento);
 				String estado = ((TextView) view).getText().toString().split("\n")[6].trim();
 				intent.putExtra("Estado", estado);
-				String invitado = ((TextView) view).getText().toString().split("\n")[5].split(":")[1].trim();
+				String invitado = ((TextView) view).getText().toString().split("\n")[7].split(":")[1].trim();
 				intent.putExtra("Invitado", invitado);
 				startActivity(intent);
 			}
 		});		
-
-		
-		
-		
 	}
 	
 	//-----------------------------------------------------------------

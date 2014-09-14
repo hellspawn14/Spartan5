@@ -11,6 +11,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.telephony.SmsManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
@@ -170,6 +171,10 @@ public class DetalleEventoActivity extends Activity
 						numeroTelefonicoContacto = e.getMessage();
 						//showDialog(DIALOGO_ERROR);
 					}
+					if (numeroTelefonicoContacto == null)
+					{
+						numeroTelefonicoContacto = "Número no disponible";
+					}
 					String strContacto = invitado + ": " + numeroTelefonicoContacto;
 					items[0] = strContacto;
 					ArrayAdapter<String> adapter= new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,android.R.id.text1,items);
@@ -196,7 +201,7 @@ public class DetalleEventoActivity extends Activity
 	{
 		//Mensaje
 		String mensaje = "Hola, quiero invitarte a " + tituloEvento.getText() + "\n" + lugarEvento.getText() + "\n" + fechaEvento.getText();   
-		if (numeroTelefonicoContacto == null)
+		if (numeroTelefonicoContacto == null || numeroTelefonicoContacto.equals("Número no disponible"))
 		{
 			Toast.makeText(getApplicationContext(), "Debe introducir un numero valido", Toast.LENGTH_SHORT).show();
 		}
@@ -222,11 +227,14 @@ public class DetalleEventoActivity extends Activity
 	
 	public void confirmarAsistencia(View w)
 	{
-		String idEventoRegistrar = identificadorEvento.getText().toString().split(":")[1];
+		String idEventoRegistrar = identificadorEvento.getText().toString().split(":")[1].trim();
+		Log.d("Registrar evento op", idEventoRegistrar);
 		Evento e = instanciaSpartan.getEventById(idEventoRegistrar);
+		Log.d("Registrar evento res", e.getIdEvento());
 		if (e != null)
 		{
-			Asistencia As = new Asistencia(e,invitado);
+			int idAsistencia = instanciaSpartan.darUsuario().getAsistencias().size();
+			Asistencia As = new Asistencia(e,invitado, idAsistencia);
 			//Registra la asistencia en el objeto
 			instanciaSpartan.darUsuario().getAsistencias().add(As);
 			

@@ -25,6 +25,7 @@ public class Asistencia
 	 */
 	private String invitado;
 	
+	private int idAsistencia; 
 	
 	//-----------------------------------------------------------------
 	//Constructores
@@ -35,8 +36,9 @@ public class Asistencia
 	 * @param e - Es el evento 
 	 * @param inv - Es la lista de invitados
 	 */
-	public Asistencia(Evento e, String in)
+	public Asistencia(Evento e, String in, int idAs)
 	{
+		setIdAsistencia(idAs);
 		estado = false;
 		evento = e;
 		invitado = in;
@@ -110,7 +112,7 @@ public class Asistencia
 		{
 			asiste = "No has ido";
 		}
-		return evento.getInformationStr() + "\n" + asiste + "\n" + "Invitado: " + invitado;
+		return evento.getInformationStr() + "\n" + asiste + "\n" + "Invitado: " + invitado + "\n" + "Identificador asistencia: " + idAsistencia;
 	}
 	
 	/**
@@ -124,7 +126,21 @@ public class Asistencia
 		{
 			est = 1;
 		}
-		return evento.getIdEvento() + ";" + est + ";" + "Invitado: " + invitado; 
+		return evento.getIdEvento() + ";" + est + ";" + "Invitado: " + invitado  + "\n" + "Id Asistencia: " + idAsistencia; 
+	}
+
+	/**
+	 * @return the idAsistencia
+	 */
+	public int getIdAsistencia() {
+		return idAsistencia;
+	}
+
+	/**
+	 * @param idAsistencia the idAsistencia to set
+	 */
+	public void setIdAsistencia(int idAsistencia) {
+		this.idAsistencia = idAsistencia;
 	}
 
 }

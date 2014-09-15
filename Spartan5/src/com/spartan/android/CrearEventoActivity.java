@@ -221,37 +221,46 @@ public class CrearEventoActivity extends Activity
 	{
 		if (sportKey.equals(""))
 		{
-			Toast.makeText(getApplicationContext(), sportKey, Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "Seleccione un deporte", Toast.LENGTH_SHORT).show();
 		}
+		
 		
 		else
 		{
 			String tituloEvento = nombreEvento.getText() + "";
 			String lugar = lugarEvento.getText() + "";
 			
-			int dia = fechaEvento.getDayOfMonth();
-			int mes = fechaEvento.getMonth() + 1;
-			int anio = fechaEvento.getYear();
-			int hora = horaEvento.getCurrentHour();
-			int minuto = horaEvento.getCurrentMinute();
-			//"MM/dd/yyyy"
-			String strMonth = "";
-			if (mes < 10)
+			if (tituloEvento.equals("") | lugar.equals(""))
 			{
-				strMonth = "0" + mes;
+				Toast.makeText(getApplicationContext(), "Introduzca datos validos", Toast.LENGTH_SHORT).show();
 			}
+			
 			else
 			{
-				strMonth = mes + "";
+				int dia = fechaEvento.getDayOfMonth();
+				int mes = fechaEvento.getMonth() + 1;
+				int anio = fechaEvento.getYear();
+				int hora = horaEvento.getCurrentHour();
+				int minuto = horaEvento.getCurrentMinute();
+				//"MM/dd/yyyy"
+				String strMonth = "";
+				if (mes < 10)
+				{
+					strMonth = "0" + mes;
+				}
+				else
+				{
+					strMonth = mes + "";
+				}
+				String strFecha = strMonth + "/" + dia + "/" + anio + " " + hora + ":" + minuto + ":" + "00";
+				Intent intent = new Intent(getApplicationContext(), ConfirmarEventoActivity.class);
+				
+				intent.putExtra("Actividad", sportKey);
+				intent.putExtra("Titulo", tituloEvento);
+				intent.putExtra("Lugar", lugar);
+				intent.putExtra("Fecha", strFecha);
+				startActivity(intent);
 			}
-			String strFecha = strMonth + "/" + dia + "/" + anio + " " + hora + ":" + minuto + ":" + "00";
-			Intent intent = new Intent(getApplicationContext(), ConfirmarEventoActivity.class);
-			
-			intent.putExtra("Actividad", sportKey);
-			intent.putExtra("Titulo", tituloEvento);
-			intent.putExtra("Lugar", lugar);
-			intent.putExtra("Fecha", strFecha);
-			startActivity(intent);
 		}
 		
 	}

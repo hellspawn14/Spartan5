@@ -65,7 +65,7 @@
 	    android:layout_weight="1" >
 
         <ListView
-            android:id="@+id/listView1"
+            android:id="@+id/listaConfirmarInvitado"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1" >
@@ -85,7 +85,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textColor="@color/white"
-            android:text="@string/cmdAgregarInvitados" />
+            android:text="@string/cmdAgregarInvitados"
+            android:onClick="seleccionarContacto" />
         
         <Button
             android:id="@+id/button3"
@@ -93,7 +94,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textColor="@color/white"
-            android:text="@string/cmdEnviarMensaje" />
+            android:text="@string/cmdEnviarMensaje"
+            android:onClick="enviarMensajeCrear" />
 
         <Button
             android:id="@+id/button1"

@@ -393,6 +393,8 @@ public class Spartan
 		user.getAsistencias().remove(A);
 	}
 	
+	
+	
 	/**
 	 * Actualiza el score 
 	 * @param actividad

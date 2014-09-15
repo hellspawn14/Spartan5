@@ -4,8 +4,13 @@ import com.example.spartan5.R;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.ContactsContract;
+import android.telephony.SmsManager;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -22,6 +27,8 @@ public class ConfirmarEventoActivity extends Activity
 	 */
 	public final static String FORMAT = "MM/dd/yyyy hh:mm:ss";
 
+	public final static int PICK_CONTACT = 1;
+	
 	
 	//-----------------------------------------------------------------
 	//Atributos
@@ -57,6 +64,16 @@ public class ConfirmarEventoActivity extends Activity
 	 */
 	private String [] items;
 	
+	/**
+	 * Invitado al evento
+	 */
+	private String invitado;
+	
+	/**
+	 * Numero telefonico del contacto 
+	 */
+	private String numeroTelefonicoContacto;
+	
 	
 	//-----------------------------------------------------------------
 	//Constructor
@@ -80,6 +97,15 @@ public class ConfirmarEventoActivity extends Activity
 		tituloEvento.setText(intent.getExtras().getString("Titulo"));
 		lugarEvento.setText("Lugar: " + intent.getExtras().getString("Lugar"));
 		fechaEvento.setText("Fecha: " + intent.getExtras().getString("Fecha"));
+		
+		//Inicializa la lista de invitados
+		items = new String [1];
+		items[0] = "No se ha compartido este evento";
+		listaInvitado = (ListView) findViewById(R.id.listaConfirmarInvitado);
+		ArrayAdapter<String> adapter= new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,android.R.id.text1,items);
+		listaInvitado.setAdapter(adapter);	
+		
+		invitado = "No hay invitado";
 	}
 	
 	//-----------------------------------------------------------------
@@ -91,8 +117,96 @@ public class ConfirmarEventoActivity extends Activity
 	 */
 	public void seleccionarContacto(View v)
 	{
-		
+		Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
+		startActivityForResult(intent,PICK_CONTACT);
 	}
+	
+	/**
+	 * Inicializa la lista de contactos
+	 */
+	public void onActivityResult(int reqCode, int resultCode, Intent data) 
+	{
+		invitado = "";
+		if(resultCode == RESULT_OK){
+			if(reqCode == PICK_CONTACT)
+			{
+				Uri uriContacto = data.getData();
+				if(uriContacto != null)
+				{						
+					try 
+					{
+						String[] cols = {ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME};
+						Cursor cursor =  managedQuery(uriContacto, cols, null, null, null);
+						cursor.moveToFirst();
+						invitado = cursor.getString(0);
+
+						Uri phoneUri = ContactsContract.CommonDataKinds.Phone.CONTENT_URI;
+						String[] columnas = {ContactsContract.CommonDataKinds.Phone.NUMBER};
+						String seleccion = ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME + "='" + invitado + "'";
+						Cursor c = managedQuery(phoneUri,columnas,seleccion,null, null );
+						if(c.moveToFirst())
+						{
+							numeroTelefonicoContacto = c.getString(0);
+						}
+
+					} catch (Exception e) 
+					{
+						numeroTelefonicoContacto = e.getMessage();
+					}
+					if (numeroTelefonicoContacto == null)
+					{
+						numeroTelefonicoContacto = "Número no disponible";
+					}
+					String strContacto = invitado + ": " + numeroTelefonicoContacto;
+					items[0] = strContacto;
+					ArrayAdapter<String> adapter= new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,android.R.id.text1,items);
+					listaInvitado.setAdapter(adapter);	
+					//compartidaCon.setText(nombreContacto);
+				}
+			}
+		}
+	}
+
+	
+	/**
+	 * Envia mensajes SMS
+	 * @param w
+	 */
+	public void enviarMensajeCrear(View w)
+	{
+		this.sendSMS();
+	}
+	
+	/**
+	 * Envia mensaje SMS
+	 */
+	private void sendSMS()
+	{
+		//Mensaje
+		String mensaje = "Hola, quiero invitarte a " + tituloEvento.getText() + "\n" + lugarEvento.getText() + "\n" + fechaEvento.getText();   
+		if (numeroTelefonicoContacto == null || numeroTelefonicoContacto.equals("Número no disponible"))
+		{
+			Toast.makeText(getApplicationContext(), "Debe introducir un numero valido", Toast.LENGTH_SHORT).show();
+		}
+		
+		else
+		{
+			 try 
+			 {
+			     SmsManager smsManager = SmsManager.getDefault();
+			     smsManager.sendTextMessage(numeroTelefonicoContacto, null, mensaje, null, null);
+			     Toast.makeText(getApplicationContext(), "Mensaje enviado",
+			     Toast.LENGTH_LONG).show();
+			  } 
+			 catch (Exception e) 
+			 {
+			     Toast.makeText(getApplicationContext(),"Mensaje no enviado",Toast.LENGTH_LONG).show();
+			     e.printStackTrace();    
+			 }
+			//Toast.makeText(getApplicationContext(), "Mensaje enviado", Toast.LENGTH_SHORT).show();
+		}
+	}
+
 	
 	public void terminarConfirmacion(View w)
 	{

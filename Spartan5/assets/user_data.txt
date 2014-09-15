@@ -1,1 +1,1 @@
-score=2.8;futbol=1;basket=6;voley=2;tenis=5
+score=2.8;futbol=2;basket=5;voley=2;tenis=5

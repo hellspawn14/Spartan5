@@ -238,7 +238,7 @@ public class ConfirmarEventoActivity extends Activity
 		instanciaSpartan.getCatalogo().add(e);
 		
 		//Agrega la asistencia
-		int idAsistencia = instanciaSpartan.darUsuario().getAsistencias().size();
+		int idAsistencia = instanciaSpartan.darUsuario().getAsistencias().size() + 1;
 		Asistencia As = new Asistencia(e,invitado, idAsistencia);
 		instanciaSpartan.darUsuario().getAsistencias().add(As);
 	

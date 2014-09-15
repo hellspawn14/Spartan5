@@ -225,7 +225,7 @@ public class ConfirmarEventoActivity extends Activity
 	public void terminarConfirmacion(View w)
 	{
 		Intent intent = getIntent();
-		String idEvento = instanciaSpartan.getCatalogo().size() + "";
+		String idEvento = (instanciaSpartan.getCatalogo().size() + 1)+ "";
 		String tipoEvento = intent.getExtras().getString("Actividad"); 
 		String titulo = intent.getExtras().getString("Titulo");
 		String lugar = intent.getExtras().getString("Lugar");

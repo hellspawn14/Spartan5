@@ -95,6 +95,9 @@ public class Evento
 	 */
 	private Date fechaEvento;
 	
+	/**
+	 * Representacion en string de la fecha
+	 */
 	private String strFecha;
 	
 	//-----------------------------------------------------------------

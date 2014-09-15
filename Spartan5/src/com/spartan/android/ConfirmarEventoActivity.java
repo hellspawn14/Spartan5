@@ -1,6 +1,7 @@
 package com.spartan.android;
 
 import com.example.spartan5.R;
+import com.spartan.entidades.Spartan;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -74,6 +75,11 @@ public class ConfirmarEventoActivity extends Activity
 	 */
 	private String numeroTelefonicoContacto;
 	
+	/**
+	 * Instancia principal de la aplicacion
+	 */
+	private Spartan instanciaSpartan;
+	
 	
 	//-----------------------------------------------------------------
 	//Constructor
@@ -86,6 +92,8 @@ public class ConfirmarEventoActivity extends Activity
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_confirmar_evento);
+		
+		instanciaSpartan = Spartan.darInstancia(getApplicationContext());
 		
 		Intent intent = getIntent();
 		tituloEvento = (TextView) findViewById(R.id.lblTituloEvento);
@@ -210,6 +218,8 @@ public class ConfirmarEventoActivity extends Activity
 	
 	public void terminarConfirmacion(View w)
 	{
+		int idEvento = instanciaSpartan.getCatalogo().size();
+		
 		Intent intent = new Intent(getApplicationContext(), MenuPrincipalActivity.class);
 		startActivity(intent);
 		Toast.makeText(getApplicationContext(), "Evento confirmado", Toast.LENGTH_SHORT).show();

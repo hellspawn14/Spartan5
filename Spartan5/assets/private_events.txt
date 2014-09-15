@@ -1,1 +1,0 @@
-ID=1;deporte=Fútbol;titulo=Micro;lugar=Cancha cede;organizador=uniandes;localizacion=0,0;Fecha=09/15/2014 15:30:00

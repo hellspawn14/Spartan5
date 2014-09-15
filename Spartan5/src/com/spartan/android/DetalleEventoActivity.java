@@ -75,7 +75,6 @@ public class DetalleEventoActivity extends Activity
 	 */
 	private ListView listaInvitados;
 	
-	
 	/**
 	 * Items
 	 */

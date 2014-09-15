@@ -18,27 +18,27 @@ public class Evento
 	/**
 	 * Nombre
 	 */
-	public final static String NOMBRE = "Nombre: ";
+	public final static String NOMBRE = "Titulo =";
 	
 	/**
 	 * Organizador
 	 */
-	public final static String ORG = "Organizador: ";
+	public final static String ORG = "Organizador =";
 	
 	/**
 	 * Deporte
 	 */
-	public final static String DEPORTE = "Actividad: ";
+	public final static String DEPORTE = "Deporte =";
 	
 	/**
 	 * Fecha
 	 */
-	public final static String FECHA = "Fecha: ";
+	public final static String FECHA = "Fecha =";
 	
 	/**
 	 * Lugar
 	 */
-	public final static String LUGAR = "Lugar: ";
+	public final static String LUGAR = "Lugar =";
 	
 	/**
 	 * Formato de fecha
@@ -48,7 +48,7 @@ public class Evento
 	/**
 	 * Identificador del evento 
 	 */
-	public final static String ID = "Identificador evento: ";
+	public final static String ID = "ID =";
 			
 	
 	//-----------------------------------------------------------------
@@ -252,6 +252,15 @@ public class Evento
 		//Organizador: Uniandes
 		//Fecha: 09/13/2014 15:30:00
 		return ans;
+	}
+	/**
+	 * Retorna una representacion de la asistencia para guardarla 
+	 * @return idEvento;estado;Invitados:X1,X2,X3....
+	 */
+	public String getStringToSave()
+	{
+//		"ID=6;deporte=Tenis;titulo=Cursos de tenis libres en uniandes;lugar=Centro deportivo universidad de los Andes;organizador=uniandes;localizacion=4.600196,-74.063390;Fecha=09/13/2014 15:30:00";
+		return ID+idEvento+";"+DEPORTE+tipoEvento+";"+NOMBRE+tipoEvento+LUGAR+strLugarEvento+";"+ORG+organizador+";"+"localizacion ="+latitud+","+longitud+";"+FECHA+strFecha;		
 	}
 	
 	

@@ -276,5 +276,8 @@ public class Usuario
 		}
 		setUserStatus();
 	}
-	
+	public void agregarAsistencia(Asistencia a)
+	{
+		asistencias.add(a);
+	}
 }

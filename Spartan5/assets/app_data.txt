@@ -1,5 +1,0 @@
-userScore=4.0
-soccer=1
-basket=3
-voley=2
-tennis=1

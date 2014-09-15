@@ -1,7 +1,5 @@
 package com.spartan.android;
 
-
-
 import com.example.spartan5.R;
 
 import android.app.Activity;
@@ -23,10 +21,7 @@ public class CrearEventoActivity extends Activity
 	//Constantes
 	//-----------------------------------------------------------------
 
-	/**
-	 * Formato de fecha
-	 */
-	public final static String FORMAT = "MM/dd/yyyy hh:mm:ss";
+
 
 	//-----------------------------------------------------------------
 	//Atributos

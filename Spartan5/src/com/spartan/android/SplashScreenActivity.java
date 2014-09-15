@@ -1,4 +1,5 @@
 package com.spartan.android;
+
 import com.example.spartan5.R;
 import android.app.Activity;
 import android.content.Intent;

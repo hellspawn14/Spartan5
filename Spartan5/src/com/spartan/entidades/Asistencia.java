@@ -25,6 +25,9 @@ public class Asistencia
 	 */
 	private String invitado;
 	
+	/**
+	 * Identificador de la asistencia
+	 */
 	private int idAsistencia; 
 	
 	//-----------------------------------------------------------------

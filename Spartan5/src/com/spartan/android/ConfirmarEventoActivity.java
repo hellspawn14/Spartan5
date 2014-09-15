@@ -1,6 +1,12 @@
 package com.spartan.android;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import com.example.spartan5.R;
+import com.spartan.entidades.Asistencia;
+import com.spartan.entidades.Evento;
 import com.spartan.entidades.Spartan;
 
 import android.app.Activity;
@@ -218,11 +224,45 @@ public class ConfirmarEventoActivity extends Activity
 	
 	public void terminarConfirmacion(View w)
 	{
-		int idEvento = instanciaSpartan.getCatalogo().size();
+		Intent intent = getIntent();
+		String idEvento = instanciaSpartan.getCatalogo().size() + "";
+		String tipoEvento = intent.getExtras().getString("Actividad"); 
+		String titulo = intent.getExtras().getString("Titulo");
+		String lugar = intent.getExtras().getString("Lugar");
+		String organizador = "Usuario";
+		double latLong = 0;
+		Date fecha = this.stringToDate(intent.getExtras().getString("Fecha"));
 		
-		Intent intent = new Intent(getApplicationContext(), MenuPrincipalActivity.class);
-		startActivity(intent);
+		//Agrega el evento
+		Evento e = new Evento (idEvento, tipoEvento ,titulo, lugar, organizador, latLong, latLong, fecha);
+		instanciaSpartan.getCatalogo().add(e);
+		
+		//Agrega la asistencia
+		int idAsistencia = instanciaSpartan.darUsuario().getAsistencias().size();
+		Asistencia As = new Asistencia(e,invitado, idAsistencia);
+		instanciaSpartan.darUsuario().getAsistencias().add(As);
+	
+		Intent intentPaso = new Intent(getApplicationContext(), MenuPrincipalActivity.class);
+		startActivity(intentPaso);
 		Toast.makeText(getApplicationContext(), "Evento confirmado", Toast.LENGTH_SHORT).show();
+	}
+	
+	public Date stringToDate(String fechaStr)
+	{
+		SimpleDateFormat dt = new SimpleDateFormat(FORMAT);
+		Date D;
+		try 
+		{
+			D = dt.parse(fechaStr);
+			return D;
+			
+		} 
+		catch (ParseException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	/**

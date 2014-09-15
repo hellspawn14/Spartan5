@@ -42,11 +42,6 @@ public class Spartan
 	private ArrayList <Evento> catalogoEventos;
 	
 	/**
-	 * Catalogo de eventos privados
-	 */
-	private ArrayList <Evento> eventosPrivados;
-	
-	/**
 	 * Instancia de la aplicacion 
 	 */
 	public static Spartan instanciaSpartan;
@@ -324,16 +319,7 @@ public class Spartan
 		}
 		return ans;
 	}
-	
-	/**
-	 * Retorna los eventos privados del usuario
-	 * @return
-	 */
-	public ArrayList <Evento> getPrivados()
-	{
-		return eventosPrivados;
-	}
-	
+		
 	/**
 	 * Escribe los datos de una asistencia 
 	 * @param a
@@ -395,7 +381,7 @@ public class Spartan
 			String actividad = A.getEvento().getTipoEvento();
 			updateScore(actividad);
 		}
-		//Deja asi	
+		//Deje asi	
 	}
 	
 	/**

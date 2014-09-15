@@ -1,5 +1,7 @@
 package com.spartan.android;
 
+
+
 import com.example.spartan5.R;
 
 import android.app.Activity;
@@ -20,6 +22,11 @@ public class CrearEventoActivity extends Activity
 	//-----------------------------------------------------------------
 	//Constantes
 	//-----------------------------------------------------------------
+
+	/**
+	 * Formato de fecha
+	 */
+	public final static String FORMAT = "MM/dd/yyyy hh:mm:ss";
 
 	//-----------------------------------------------------------------
 	//Atributos
@@ -125,6 +132,14 @@ public class CrearEventoActivity extends Activity
 		});
 
 		initTouchListeners();
+		
+		//Inicializa los demas elementos graficos
+		nombreEvento = (EditText) findViewById(R.id.txtTituloDeporte);
+		lugarEvento = (EditText) findViewById(R.id.txtLugarEvento);
+		fechaEvento = (DatePicker) findViewById(R.id.pickerFechaCrear);
+		horaEvento = (TimePicker) findViewById(R.id.pickerHoraCrear);
+		
+		
 
 	}
 	
@@ -209,7 +224,40 @@ public class CrearEventoActivity extends Activity
 	 */
 	public void confirmarEvento(View w)
 	{
-		Intent intent = new Intent(getApplicationContext(), ConfirmarEventoActivity.class);
-		startActivity(intent);
+		if (sportKey.equals(""))
+		{
+			Toast.makeText(getApplicationContext(), sportKey, Toast.LENGTH_SHORT).show();
+		}
+		
+		else
+		{
+			String tituloEvento = nombreEvento.getText() + "";
+			String lugar = lugarEvento.getText() + "";
+			
+			int dia = fechaEvento.getDayOfMonth();
+			int mes = fechaEvento.getMonth() + 1;
+			int anio = fechaEvento.getYear();
+			int hora = horaEvento.getCurrentHour();
+			int minuto = horaEvento.getCurrentMinute();
+			//"MM/dd/yyyy"
+			String strMonth = "";
+			if (mes < 10)
+			{
+				strMonth = "0" + mes;
+			}
+			else
+			{
+				strMonth = mes + "";
+			}
+			String strFecha = strMonth + "/" + dia + "/" + anio + " " + hora + ":" + minuto + ":" + "00";
+			Intent intent = new Intent(getApplicationContext(), ConfirmarEventoActivity.class);
+			
+			intent.putExtra("Actividad", sportKey);
+			intent.putExtra("Titulo", tituloEvento);
+			intent.putExtra("Lugar", lugar);
+			intent.putExtra("Fecha", strFecha);
+			startActivity(intent);
+		}
+		
 	}
 }

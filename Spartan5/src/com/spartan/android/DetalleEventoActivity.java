@@ -224,7 +224,7 @@ public class DetalleEventoActivity extends Activity
 		Evento e = instanciaSpartan.getEventById(idEventoRegistrar);
 		if (e != null)
 		{
-			int idAsistencia = instanciaSpartan.darUsuario().getAsistencias().size();
+			int idAsistencia = instanciaSpartan.darUsuario().getAsistencias().size() + 1;
 			Asistencia As = new Asistencia(e,invitado, idAsistencia);
 			//Registra la asistencia en el objeto
 			instanciaSpartan.darUsuario().getAsistencias().add(As);

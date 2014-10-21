@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:android1="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/splashScreenBackground"
+    android:orientation="horizontal" >
+
+    <!-- Estadisticas del juegador -->
+
+
+    <!-- Ranking -->
+
+    <!-- Puntaje del juegador -->
+
+
+    <!-- Informacion encuentros previos -->
+
+
+    <!-- Comandos de la vista -->
+
+    <LinearLayout
+        android1:layout_width="wrap_content"
+        android1:layout_height="wrap_content"
+        android1:layout_marginLeft="5dp"
+        android1:layout_marginRight="5dp"
+        android1:layout_marginTop="30dp" >
+
+        <LinearLayout
+            android1:layout_width="wrap_content"
+            android1:layout_height="wrap_content"
+            android1:orientation="vertical" >
+
+            <ImageButton
+                android1:layout_width="158dp"
+                android1:layout_height="98dp"
+                android1:background="@color/splashScreenBackground"
+                android1:onClick="verPerfil"
+                android1:scaleType="fitCenter"
+                android1:src="@drawable/my_events" />
+
+            <TextView
+                android1:id="@+id/TextView01"
+                android1:layout_width="wrap_content"
+                android1:layout_height="wrap_content"
+                android1:layout_gravity="center_horizontal"
+                android1:text="Eventos"
+                android1:textAppearance="?android:attr/textAppearanceMedium"
+                android1:textColor="@color/white" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android1:layout_width="wrap_content"
+            android1:layout_height="wrap_content"
+            android1:orientation="vertical" >
+
+            <ImageButton
+                android1:layout_width="158dp"
+                android1:layout_height="98dp"
+                android1:background="@color/splashScreenBackground"
+                android1:onClick="verPerfil"
+                android1:scaleType="fitCenter"
+                android1:src="@drawable/my_teams" />
+
+            <TextView
+                android1:id="@+id/textView1"
+                android1:layout_width="wrap_content"
+                android1:layout_height="wrap_content"
+                android1:layout_gravity="center_horizontal"
+                android1:text="Equipos"
+                android1:textAppearance="?android:attr/textAppearanceMedium"
+                android1:textColor="@color/white" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android1:layout_width="match_parent"
+        android1:layout_height="wrap_content"
+        android1:layout_marginBottom="20dp"
+        android1:layout_marginTop="20dp"
+        android1:orientation="vertical" >
+
+        <ImageButton
+            android1:layout_width="match_parent"
+            android1:layout_height="98dp"
+            android1:background="@color/splashScreenBackground"
+            android1:onClick="verPerfil"
+            android1:scaleType="fitCenter"
+            android1:src="@drawable/spartan_icon" />
+
+        <TextView
+            android1:id="@+id/TextView02"
+            android1:layout_width="wrap_content"
+            android1:layout_height="wrap_content"
+            android1:layout_gravity="center_horizontal"
+            android1:text="Mi Perfil"
+            android1:textAppearance="?android:attr/textAppearanceMedium"
+            android1:textColor="@color/white" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android1:layout_width="wrap_content"
+        android1:layout_height="wrap_content"
+        android1:layout_marginBottom="30dp"
+        android1:layout_marginLeft="5dp"
+        android1:layout_marginRight="5dp" >
+
+        <LinearLayout
+            android1:layout_width="wrap_content"
+            android1:layout_height="wrap_content"
+            android1:orientation="vertical" >
+
+            <ImageButton
+                android1:layout_width="158dp"
+                android1:layout_height="98dp"
+                android1:background="@color/splashScreenBackground"
+                android1:onClick="verPerfil"
+                android1:scaleType="fitCenter"
+                android1:src="@drawable/create_team" />
+
+            <TextView
+                android1:id="@+id/TextView04"
+                android1:layout_width="wrap_content"
+                android1:layout_height="wrap_content"
+                android1:layout_gravity="center_horizontal"
+                android1:text="Perfect Team"
+                android1:textAppearance="?android:attr/textAppearanceMedium"
+                android1:textColor="@color/white" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android1:layout_width="wrap_content"
+            android1:layout_height="wrap_content"
+            android1:orientation="vertical" >
+
+            <ImageButton
+                android1:layout_width="158dp"
+                android1:layout_height="98dp"
+                android1:background="@color/splashScreenBackground"
+                android1:onClick="verPerfil"
+                android1:scaleType="fitCenter"
+                android1:src="@drawable/new_tournament" />
+
+            <TextView
+                android1:id="@+id/TextView03"
+                android1:layout_width="wrap_content"
+                android1:layout_height="wrap_content"
+                android1:layout_gravity="center_horizontal"
+                android1:text="Torneos"
+                android1:textAppearance="?android:attr/textAppearanceMedium"
+                android1:textColor="@color/white" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</TableLayout>

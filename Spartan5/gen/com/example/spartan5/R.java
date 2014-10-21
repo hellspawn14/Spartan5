@@ -1336,6 +1336,7 @@ containing a value of this type.
     }
     public static final class id {
         public static final int FechaEventoPicker=0x7f050054;
+        public static final int LinearLayout1=0x7f05007d;
         public static final int TextView01=0x7f050079;
         public static final int TextView02=0x7f05007a;
         public static final int TextView03=0x7f05007c;
@@ -1384,7 +1385,7 @@ containing a value of this type.
         public static final int dropdown=0x7f050021;
         public static final int edit_query=0x7f050041;
         public static final int end=0x7f050011;
-        public static final int estadisticasJuegador=0x7f05007e;
+        public static final int estadisticasJuegador=0x7f05007f;
         public static final int estadisticasPerfil=0x7f05008b;
         public static final int expand_activities_button=0x7f050037;
         public static final int expanded_menu=0x7f05003d;
@@ -1398,14 +1399,13 @@ containing a value of this type.
         public static final int ifRoom=0x7f05001c;
         public static final int image=0x7f050038;
         public static final int imageView1=0x7f050093;
-        public static final int imageView2=0x7f05007f;
-        public static final int imageView3=0x7f050081;
-        public static final int imageView4=0x7f050083;
-        public static final int imageView5=0x7f050085;
+        public static final int imageView2=0x7f050080;
+        public static final int imageView3=0x7f050082;
+        public static final int imageView4=0x7f050084;
+        public static final int imageView5=0x7f050086;
         public static final int imageView6=0x7f05008f;
-        public static final int imagenBadge=0x7f05007d;
+        public static final int imagenBadge=0x7f05007e;
         public static final int imgAsistenciaEvento=0x7f05006a;
-        public static final int imgBadge=0x7f050089;
         public static final int imgDeporte=0x7f050058;
         public static final int imgResultadoEvento=0x7f050071;
         public static final int lblAsistenciaEstado=0x7f05006e;
@@ -1437,14 +1437,14 @@ containing a value of this type.
         public static final int never=0x7f05001b;
         public static final int newUserName=0x7f050077;
         public static final int newUserPassword=0x7f050078;
-        public static final int newUserPasswordConf=0x7f050088;
-        public static final int newUserPhone=0x7f050087;
+        public static final int newUserPasswordConf=0x7f050089;
+        public static final int newUserPhone=0x7f050088;
         public static final int none=0x7f050022;
         public static final int normal=0x7f050012;
-        public static final int numBasket=0x7f050082;
-        public static final int numFutbol=0x7f050080;
-        public static final int numTennis=0x7f050086;
-        public static final int numVoley=0x7f050084;
+        public static final int numBasket=0x7f050083;
+        public static final int numFutbol=0x7f050081;
+        public static final int numTennis=0x7f050087;
+        public static final int numVoley=0x7f050085;
         public static final int pickerFechaCrear=0x7f050068;
         public static final int pickerHoraCrear=0x7f050069;
         public static final int progress_circular=0x7f050029;
@@ -1545,19 +1545,21 @@ containing a value of this type.
         public static final int activity_detalle_evento_resultados=0x7f03001f;
         public static final int activity_log_in=0x7f030020;
         public static final int activity_main_opciones=0x7f030021;
-        public static final int activity_menu_principal=0x7f030022;
-        public static final int activity_new_user=0x7f030023;
-        public static final int activity_perfil_usuario=0x7f030024;
-        public static final int activity_resultados_busqueda=0x7f030025;
-        public static final int activity_splash_screen=0x7f030026;
-        public static final int support_simple_spinner_dropdown_item=0x7f030027;
+        public static final int activity_main_opciones_sin_ingreso=0x7f030022;
+        public static final int activity_menu_principal=0x7f030023;
+        public static final int activity_new_user=0x7f030024;
+        public static final int activity_perfil_usuario=0x7f030025;
+        public static final int activity_resultados_busqueda=0x7f030026;
+        public static final int activity_splash_screen=0x7f030027;
+        public static final int support_simple_spinner_dropdown_item=0x7f030028;
     }
     public static final class menu {
         public static final int buscar_equipos=0x7f0c0000;
         public static final int buscar_usuarios_afin=0x7f0c0001;
         public static final int log_in=0x7f0c0002;
         public static final int main_opciones=0x7f0c0003;
-        public static final int registrar_usuario=0x7f0c0004;
+        public static final int main_opciones_sin_ingreso=0x7f0c0004;
+        public static final int registrar_usuario=0x7f0c0005;
     }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
@@ -1618,16 +1620,22 @@ containing a value of this type.
         public static final int cmdGoToNewUser=0x7f0a0036;
         public static final int cmdIngresar=0x7f0a003e;
         public static final int cmdInvitar=0x7f0a0012;
+        public static final int cmdLogout=0x7f0a0047;
         public static final int cmdMiPerfil=0x7f0a0043;
         public static final int cmdNewUser=0x7f0a0035;
         public static final int cmdNoDeporte=0x7f0a001e;
         public static final int cmdNoFecha=0x7f0a0034;
         public static final int cmdNoRegistration=0x7f0a0037;
         public static final int cmdPerfectTeam=0x7f0a0044;
+        public static final int cmdSettings=0x7f0a0046;
         public static final int cmdUbicacion=0x7f0a001f;
+        public static final int cmdVerAsistencias=0x7f0a0045;
         public static final int cmdVerEquipos=0x7f0a0041;
+        public static final int cmdVerEquiposSinIngresar=0x7f0a004a;
         public static final int cmdVerEventos=0x7f0a0040;
+        public static final int cmdVerEventosSinIngresar=0x7f0a0049;
         public static final int cmdVerTorneos=0x7f0a0042;
+        public static final int cmdVerTorneosSinIngresar=0x7f0a004b;
         public static final int cmdYaAsisti=0x7f0a0033;
         public static final int hello_world=0x7f0a0039;
         public static final int lblBasket=0x7f0a0027;
@@ -1647,6 +1655,7 @@ containing a value of this type.
         public static final int title_activity_buscar_usuarios_afin=0x7f0a003c;
         public static final int title_activity_log_in=0x7f0a003b;
         public static final int title_activity_main_opciones=0x7f0a003f;
+        public static final int title_activity_main_opciones_sin_ingreso=0x7f0a0048;
         public static final int title_activity_registrar_usuario=0x7f0a0038;
         public static final int txtAmigos=0x7f0a002c;
         public static final int txtConfirmarEvento=0x7f0a0023;

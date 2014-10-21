@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:android1="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/splashScreenBackground"
+    android:orientation="horizontal" >
+
+    <!-- Estadisticas del juegador -->
+
+
+    <!-- Ranking -->
+
+
+    <!-- Puntaje del juegador -->
+
+
+    <!-- Informacion encuentros previos -->
+
+
+    <!-- Comandos de la vista -->
+
+    <LinearLayout
+        android1:id="@+id/LinearLayout1"
+        android1:layout_width="wrap_content"
+        android1:layout_height="wrap_content"
+        android1:layout_marginBottom="20dp"
+        android1:layout_marginLeft="20dp"
+        android1:layout_marginRight="20dp"
+        android1:layout_marginTop="40dp"
+        android1:orientation="horizontal" >
+
+        <ImageButton
+            android1:layout_width="158dp"
+            android1:layout_height="98dp"
+            android1:background="@color/splashScreenBackground"
+            android1:onClick="verPerfil"
+            android1:scaleType="fitCenter"
+            android1:src="@drawable/my_events" />
+
+        <TextView
+            android1:id="@+id/TextView01"
+            android1:layout_width="wrap_content"
+            android1:layout_height="wrap_content"
+            android1:layout_gravity="center"
+            android1:text="@string/cmdVerEventosSinIngresar"
+            android1:textAppearance="?android:attr/textAppearanceLarge"
+            android1:textColor="@color/white" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android1:layout_width="wrap_content"
+        android1:layout_height="wrap_content"
+        android1:layout_margin="20dp"
+        android1:orientation="horizontal" >
+
+        <ImageButton
+            android1:layout_width="158dp"
+            android1:layout_height="98dp"
+            android1:background="@color/splashScreenBackground"
+            android1:onClick="verPerfil"
+            android1:scaleType="fitCenter"
+            android1:src="@drawable/new_tournament" />
+
+        <TextView
+            android1:id="@+id/TextView03"
+            android1:layout_width="wrap_content"
+            android1:layout_height="wrap_content"
+            android1:layout_gravity="center"
+            android1:text="@string/cmdVerTorneosSinIngresar"
+            android1:textAppearance="?android:attr/textAppearanceLarge"
+            android1:textColor="@color/white" />
+    </LinearLayout>
+
+    <LinearLayout
+        android1:layout_width="wrap_content"
+        android1:layout_height="wrap_content"
+        android1:layout_margin="20dp"
+        android1:orientation="horizontal" >
+
+        <ImageButton
+            android1:layout_width="158dp"
+            android1:layout_height="98dp"
+            android1:background="@color/splashScreenBackground"
+            android1:onClick="verPerfil"
+            android1:scaleType="fitCenter"
+            android1:src="@drawable/my_teams" />
+
+        <TextView
+            android1:id="@+id/textView1"
+            android1:layout_width="wrap_content"
+            android1:layout_height="wrap_content"
+            android1:layout_gravity="center"
+            android1:text="@string/cmdVerEquiposSinIngresar"
+            android1:textAppearance="?android:attr/textAppearanceLarge"
+            android1:textColor="@color/white" />
+    </LinearLayout>
+
+</TableLayout>

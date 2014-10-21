@@ -57,5 +57,12 @@
     <string name="cmdVerTorneos">Ver Torneos</string>
     <string name="cmdMiPerfil">Mi Perfil</string>
     <string name="cmdPerfectTeam">Perfect Team</string>
+    <string name="cmdVerAsistencias">Asistencias</string>
+    <string name="cmdSettings">Settings</string>
+    <string name="cmdLogout">Logout</string>
+    <string name="title_activity_main_opciones_sin_ingreso">MainOpcionesSinIngreso</string>
+    <string name="cmdVerEventosSinIngresar">Eventos</string>
+    <string name="cmdVerEquiposSinIngresar">Equipos</string>
+    <string name="cmdVerTorneosSinIngresar">Torneos</string>
 
 </resources>

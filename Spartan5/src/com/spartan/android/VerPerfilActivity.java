@@ -98,10 +98,6 @@ public class VerPerfilActivity extends Activity
 		float rating = intent.getExtras().getFloat("Calificacion");
 		calificacionJugador.setRating(rating);
 		
-		//Inicializa la imagen del badge 
-		badgeJugador = (ImageView) findViewById(R.id.imgBadge);
-		badgeJugador.setImageResource(intent.getExtras().getInt("RecursoImg"));
-		
 		//Inicializa los textos
 		statsJugador = (TextView) findViewById(R.id.lblStatus);
 		statsJugador.setText(intent.getExtras().getString("NivelJugador"));

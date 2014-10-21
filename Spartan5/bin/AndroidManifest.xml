@@ -109,6 +109,10 @@
             android:name="com.spartan.android.MainOpciones"
             android:label="@string/title_activity_main_opciones" >
         </activity>
+        <activity
+            android:name="com.spartan.android.MainOpcionesSinIngreso"
+            android:label="@string/title_activity_main_opciones_sin_ingreso" >
+        </activity>
     </application>
 
 </manifest>

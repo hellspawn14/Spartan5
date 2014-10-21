@@ -40,5 +40,6 @@
     <string name="cmdCancelar">Cancelar asistencia</string>
     <string name="cmdYaAsisti">Check in</string>
     <string name="cmdNoFecha">Buscar eventos para cualquier fecha</string>
+    <string name="cmdNewUser">Registrarme</string>
   
 </resources>

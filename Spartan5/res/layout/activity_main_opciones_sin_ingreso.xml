@@ -39,7 +39,7 @@
             android1:src="@drawable/my_events" />
 
         <TextView
-            android1:id="@+id/TextView01"
+            android1:id="@+id/Textsas"
             android1:layout_width="wrap_content"
             android1:layout_height="wrap_content"
             android1:layout_gravity="center"

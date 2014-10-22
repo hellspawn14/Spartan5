@@ -2,6 +2,7 @@ package com.spartan.entidades;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
@@ -10,6 +11,8 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.util.Log;
 
 /**
@@ -42,12 +45,12 @@ public class Spartan {
 	/**
 	 * Cacheo de torneos
 	 */
-	public final static String TOURNAMENTS_FILE = "tournaments.txt";
+	// public final static String TOURNAMENTS_FILE = "tournaments.txt";
 
 	/**
 	 * Cacheo de jugadores seleccionados
 	 */
-	public final static String SELECTED_PLAYERS_FILE = "selectedPlayers.txt";
+	// public final static String SELECTED_PLAYERS_FILE = "selectedPlayers.txt";
 
 	/**
 	 * Cacheo de asistencias
@@ -58,7 +61,7 @@ public class Spartan {
 	 * Cacheo de eventos
 	 */
 	public final static String USER_SCORE_FILE = "score.txt";
-	
+
 	/**
 	 * Formato de fecha
 	 */
@@ -97,6 +100,8 @@ public class Spartan {
 	 */
 	private Context contexto;
 
+	private String userLoginName;
+
 	// -----------------------------------------------------------------
 	// Constructores
 	// -----------------------------------------------------------------
@@ -108,21 +113,53 @@ public class Spartan {
 	 *            - Es el contexto de la aplicacion
 	 */
 	public Spartan(Context c) {
+		userLoginName = null;
 		contexto = c;
 		user = new Usuario(c);
 		catalogoEventos = new ArrayList<Evento>();
 		loadEvents(c);
-//		Eventos
-//		ID=1;deporte=Fútbol;titulo=Cursos de fútbol libres en uniandes;lugar=Centro deportivo Universidad de los Andes;organizador=uniandes;localizacion=4.600196,-74.063390;Fecha=09/13/2014 15:30:00
-//				ID=2;deporte=Baloncesto;titulo=Cursos de baloncesto libres en uniandes;lugar=Centro deportivo Universidad de los Andes;organizador=uniandes;localizacion=4.600196,-74.063390;Fecha=09/13/2014 15:30:00
-//				ID=3;deporte=Voleibol;titulo=Cursos de voleybol libres en uniandes;lugar=Centro deportivo Universidad de los Andes;organizador=uniandes;localizacion=4.600196,-74.063390;Fecha=09/13/2014 15:30:00
-//				ID=4;deporte=Tenis;titulo=Cursos de tenis libres en uniandes;lugar=Centro deportivo universidad de los Andes;organizador=uniandes;localizacion=4.600196,-74.063390;Fecha=09/13/2014 15:30:00
-//				ID=5;deporte=Fútbol;titulo=Cursos de soccer libres en uniandes;lugar=Centro deportivo universidad de los Andes;organizador=uniandes;localizacion=4.600196,-74.063390;Fecha=09/13/2014 15:30:00
-//				ID=6;deporte=Tenis;titulo=Cursos de tenis libres en uniandes;lugar=Centro deportivo universidad de los Andes;organizador=uniandes;localizacion=4.600196,-74.063390;Fecha=09/13/2014 15:30:00
+		// Eventos
+		// ID=1;deporte=Fútbol;titulo=Cursos de fútbol libres en
+		// uniandes;lugar=Centro deportivo Universidad de los
+		// Andes;organizador=uniandes;localizacion=4.600196,-74.063390;Fecha=09/13/2014
+		// 15:30:00
+		// ID=2;deporte=Baloncesto;titulo=Cursos de baloncesto libres en
+		// uniandes;lugar=Centro deportivo Universidad de los
+		// Andes;organizador=uniandes;localizacion=4.600196,-74.063390;Fecha=09/13/2014
+		// 15:30:00
+		// ID=3;deporte=Voleibol;titulo=Cursos de voleybol libres en
+		// uniandes;lugar=Centro deportivo Universidad de los
+		// Andes;organizador=uniandes;localizacion=4.600196,-74.063390;Fecha=09/13/2014
+		// 15:30:00
+		// ID=4;deporte=Tenis;titulo=Cursos de tenis libres en
+		// uniandes;lugar=Centro deportivo universidad de los
+		// Andes;organizador=uniandes;localizacion=4.600196,-74.063390;Fecha=09/13/2014
+		// 15:30:00
+		// ID=5;deporte=Fútbol;titulo=Cursos de soccer libres en
+		// uniandes;lugar=Centro deportivo universidad de los
+		// Andes;organizador=uniandes;localizacion=4.600196,-74.063390;Fecha=09/13/2014
+		// 15:30:00
+		// ID=6;deporte=Tenis;titulo=Cursos de tenis libres en
+		// uniandes;lugar=Centro deportivo universidad de los
+		// Andes;organizador=uniandes;localizacion=4.600196,-74.063390;Fecha=09/13/2014
+		// 15:30:00
 		loadAss(c);
-				
-//				userdata
-//				score=2.8;futbol=2;basket=5;voley=2;tenis=5
+
+		// userdata
+		// score=2.8;futbol=2;basket=5;voley=2;tenis=5
+	}
+
+	public String getUserLoginName() {
+		return userLoginName;
+	}
+
+	public void setUserLoginName(String nUserLoginName) {
+		userLoginName = nUserLoginName;
+	}
+	
+	public void deleteUserLoginName()
+	{
+		userLoginName=null;
 	}
 
 	private void loadAss(Context c) {
@@ -562,6 +599,17 @@ public class Spartan {
 			}
 		}
 		return true;
+	}
+
+	public void save(String usernameFile, String nombre) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void resetFile(Context c, String f) {
+		String dir = c.getFilesDir().getAbsolutePath();
+		File f0 = new File(dir, f);
+		boolean del = f0.delete();
 	}
 
 }

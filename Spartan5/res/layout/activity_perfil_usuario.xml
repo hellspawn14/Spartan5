@@ -219,21 +219,24 @@
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:text="@string/cmdVerAsistencias"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:onClick="verAsistencias" />
 
         <Button
             android:id="@+id/button2"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="@string/cmdSettings"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:onClick="cambiarPwd" />
 
         <Button
             android:id="@+id/button3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/cmdLogout"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:onClick="logout" />
 
     </LinearLayout>
 

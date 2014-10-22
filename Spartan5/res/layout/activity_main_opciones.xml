@@ -29,7 +29,7 @@
                 android:onClick="verEventosUsuario" />
 
             <TextView
-                android:id="@+id/TextView01"
+                android:id="@+id/Textsas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"

@@ -17,6 +17,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.spartan5.R;
+import com.spartan.entidades.Spartan;
+import com.spartan.recursos.ConnChecker;
 
 public class LogInActivity extends Activity {
 
@@ -24,25 +26,25 @@ public class LogInActivity extends Activity {
 
 	private EditText pwd;
 
+	private Spartan mundo;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		Context c = getApplicationContext();
+		mundo = Spartan.darInstancia(c);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_log_in);
-
 		FileInputStream fis;
 		try {
-			
-			//TODO guardar el usuario en un atributo activo para validar al regresar que el usuario ya haya ingresado
-			fis = openFileInput("user.txt");
+			fis = openFileInput(Spartan.USERNAME_FILE);
 			InputStreamReader isr = new InputStreamReader(fis);
 			BufferedReader bufferedReader = new BufferedReader(isr);
 			String nameS = bufferedReader.readLine();
 			if (nameS != null) {
-				Log.v("", nameS);
-				Toast.makeText(getApplicationContext(), "Bienvenido\n" + nameS,
-						Toast.LENGTH_LONG).show();
-				Intent intent = new Intent(getApplicationContext(),
-						MainOpciones.class);
+				mundo.setUserLoginName(nameS);
+				Toast.makeText(c, "Bienvenido\n" + nameS, Toast.LENGTH_LONG)
+						.show();
+				Intent intent = new Intent(c, MainOpciones.class);
 				startActivity(intent);
 			}
 			fis.close();
@@ -56,39 +58,53 @@ public class LogInActivity extends Activity {
 		}
 		name = (EditText) findViewById(R.id.newUserName);
 		pwd = (EditText) findViewById(R.id.newUserPassword);
+
 	}
 
 	public void ingresar(View w) {
 		String nameS = name.getText() + "";
 		String pwdS = pwd.getText() + "";
-		
-		//TODO primero preguntar si ya se ha ingresado
-		if (!nameS.equals("") && !pwdS.equals("")) {
-			
-			try {
-				FileOutputStream outputStream;
-				outputStream = openFileOutput("user.txt", Context.MODE_PRIVATE);
-				outputStream.write(nameS.getBytes());
-				outputStream.close();
-			} catch (Exception e) {
-				Log.v("", "no se pudo gardar la informacion del usuario");
+		Context c = getApplicationContext();
+		String nombreM = mundo.getUserLoginName();
+		if (nombreM == null) {
+			if (!nameS.equals("") && !pwdS.equals("")) {
+				if (ConnChecker.isOnline(c)) {
+					// TODO llamar web service
+					// si, respuesta afirmativa
+					// de lo contrario informar contraseña o nombre de usuario
+					// incorrectos
+					mundo.setUserLoginName(nameS);
+
+					try {
+						FileOutputStream outputStream;
+						outputStream = openFileOutput(Spartan.USERNAME_FILE,
+								Context.MODE_PRIVATE);
+						outputStream.write(nameS.getBytes());
+						outputStream.close();
+					} catch (Exception e) {
+						Log.v("",
+								"no se pudo gardar la informacion del usuario");
+					}
+					Intent intent = new Intent(getApplicationContext(),
+							MainOpciones.class);
+					startActivity(intent);
+				} else {
+					Toast.makeText(
+							getApplicationContext(),
+							"En este momento no dispones de conexión, intenta nuestra opción sin registro",
+							Toast.LENGTH_LONG).show();
+				}
+			} else {
+				Toast.makeText(getApplicationContext(),
+						"Ingresa un nombre y contraseña primero :)",
+						Toast.LENGTH_LONG).show();
+
 			}
-			Intent intent = new Intent(getApplicationContext(), MainOpciones.class);
+		} else {
+			Toast.makeText(c, "Bienvenido\n" + nameS, Toast.LENGTH_LONG).show();
+			Intent intent = new Intent(c, MainOpciones.class);
 			startActivity(intent);
 		}
-		else{
-			Toast.makeText(getApplicationContext(), "Ingresa un nombre y contraseña primero :)",
-					Toast.LENGTH_LONG).show();
-			
-		}
-
-		Log.v("nombre", nameS);
-		Log.v("mostrando pwd", pwdS);
-		// TODO conectar con el servicio web
-
-		// si, respuesta afirmativa
-
-		// de lo contrario informar contraseña o nombre de usuario incorrectos
 	}
 
 	public void registrarUsuario(View w) {

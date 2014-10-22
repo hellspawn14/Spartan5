@@ -16,6 +16,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_UPDATES" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -93,10 +94,12 @@
             android:name="com.spartan.android.RegistrarUsuarioActivity"
             android:label="@string/title_activity_registrar_usuario" >
         </activity>
-        <!--  <activity
+        <!--
+        <activity
             android:name="com.spartan.android.LogInActivity"
             android:label="@string/title_activity_log_in" >
-        </activity>-->
+        </activity>
+        -->
         <activity
             android:name="com.spartan.android.BuscarUsuariosAFin"
             android:label="@string/title_activity_buscar_usuarios_afin" >
@@ -112,6 +115,10 @@
         <activity
             android:name="com.spartan.android.MainOpcionesSinIngreso"
             android:label="@string/title_activity_main_opciones_sin_ingreso" >
+        </activity>
+        <activity
+            android:name="com.spartan.android.CambiarContrasenaActivity"
+            android:label="@string/title_activity_cambiar_contrasena" >
         </activity>
     </application>
 

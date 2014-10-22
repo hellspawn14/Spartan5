@@ -1,23 +1,22 @@
 package com.spartan.android;
 import java.util.ArrayList;
 
-import com.example.spartan5.R;
-import com.spartan.entidades.Evento;
-import com.spartan.entidades.Spartan;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.Toast;
+import com.example.spartan5.R;
+import com.spartan.entidades.Evento;
+import com.spartan.entidades.Spartan;
 
 /**
  * Pantalla con el menu para buscar evento 
@@ -86,59 +85,61 @@ public class BuscarEventoActivity extends Activity
 	 */
 	protected void onCreate(Bundle savedInstanceState) 
 	{
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_buscar_evento);
+		Log.v("hi", "oncreate buscarEvento");
 		
-		//Carga los datos del recurso 
-		instanciaSpartan = Spartan.darInstancia(getApplicationContext()); 
-				
-		sportKey = "";
-		
-		btnSoccer = (ImageButton) findViewById(R.id.btnSoccer);
-		btnSoccer.setOnClickListener(new OnClickListener() 
-		{
-			@Override
-			public void onClick(View w) 
-			{
-				getKeySelection(com.spartan.recursos.Eventos.SOCCER);
-			} 
-		});
-		
-		btnBasket = (ImageButton) findViewById(R.id.btnBasket);
-		btnBasket.setOnClickListener(new OnClickListener() 
-		{
-			@Override
-			public void onClick(View w) 
-			{
-				getKeySelection(com.spartan.recursos.Eventos.BASKET);
-			} 
-		});
-
-		btnVoley = (ImageButton) findViewById(R.id.btnVoley);
-		btnVoley.setOnClickListener(new OnClickListener() 
-		{
-			@Override
-			public void onClick(View w) 
-			{
-				getKeySelection(com.spartan.recursos.Eventos.VOLEY);
-			} 
-		});
-		
-		btnTennis = (ImageButton) findViewById(R.id.btnTennis);
-		btnTennis.setOnClickListener(new OnClickListener() 
-		{
-			@Override
-			public void onClick(View w) 
-			{
-				getKeySelection(com.spartan.recursos.Eventos.TENNIS);
-			} 
-		});
-
-		//Inicializacion otros elementos
-		checkDeporte = (CheckBox) findViewById(R.id.checkDeporte);
-		checkFecha = (CheckBox) findViewById(R.id.checkFecha);
-		fechaEvento = (DatePicker) findViewById(R.id.FechaEventoPicker);
-		initTouchListeners();
+//		super.onCreate(savedInstanceState);
+//		setContentView(R.layout.activity_buscar_evento);
+//		
+//		//Carga los datos del recurso 
+//		instanciaSpartan = Spartan.darInstancia(getApplicationContext()); 
+//				
+//		sportKey = "";
+//		
+//		btnSoccer = (ImageButton) findViewById(R.id.btnSoccer);
+//		btnSoccer.setOnClickListener(new OnClickListener() 
+//		{
+//			@Override
+//			public void onClick(View w) 
+//			{
+//				getKeySelection(com.spartan.recursos.Eventos.SOCCER);
+//			} 
+//		});
+//		
+//		btnBasket = (ImageButton) findViewById(R.id.btnBasket);
+//		btnBasket.setOnClickListener(new OnClickListener() 
+//		{
+//			@Override
+//			public void onClick(View w) 
+//			{
+//				getKeySelection(com.spartan.recursos.Eventos.BASKET);
+//			} 
+//		});
+//
+//		btnVoley = (ImageButton) findViewById(R.id.btnVoley);
+//		btnVoley.setOnClickListener(new OnClickListener() 
+//		{
+//			@Override
+//			public void onClick(View w) 
+//			{
+//				getKeySelection(com.spartan.recursos.Eventos.VOLEY);
+//			} 
+//		});
+//		
+//		btnTennis = (ImageButton) findViewById(R.id.btnTennis);
+//		btnTennis.setOnClickListener(new OnClickListener() 
+//		{
+//			@Override
+//			public void onClick(View w) 
+//			{
+//				getKeySelection(com.spartan.recursos.Eventos.TENNIS);
+//			} 
+//		});
+//
+//		//Inicializacion otros elementos
+//		checkDeporte = (CheckBox) findViewById(R.id.checkDeporte);
+//		checkFecha = (CheckBox) findViewById(R.id.checkFecha);
+//		fechaEvento = (DatePicker) findViewById(R.id.FechaEventoPicker);
+//		initTouchListeners();
 	}
 
 	

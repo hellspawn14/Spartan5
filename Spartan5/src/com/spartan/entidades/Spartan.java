@@ -24,6 +24,42 @@ public class Spartan {
 	// -----------------------------------------------------------------
 
 	/**
+	 * Archivo donde se guarda el nombre del usuario para evitar futuros
+	 * ingresos
+	 */
+	public final static String USERNAME_FILE = "username.txt";
+
+	/**
+	 * Cacheo de eventos
+	 */
+	public final static String EVENTS_FILE = "events.txt";
+
+	/**
+	 * Cacheo de equipos
+	 */
+	public final static String TEAMS_FILE = "teams.txt";
+
+	/**
+	 * Cacheo de torneos
+	 */
+	public final static String TOURNAMENTS_FILE = "tournaments.txt";
+
+	/**
+	 * Cacheo de jugadores seleccionados
+	 */
+	public final static String SELECTED_PLAYERS_FILE = "selectedPlayers.txt";
+
+	/**
+	 * Cacheo de asistencias
+	 */
+	public final static String ASSISTANCES_FILE = "assistances.txt";
+
+	/**
+	 * Cacheo de eventos
+	 */
+	public final static String USER_SCORE_FILE = "score.txt";
+	
+	/**
 	 * Formato de fecha
 	 */
 	public final static String FORMAT = "MM/dd/yyyy hh:mm:ss";
@@ -76,7 +112,17 @@ public class Spartan {
 		user = new Usuario(c);
 		catalogoEventos = new ArrayList<Evento>();
 		loadEvents(c);
+//		Eventos
+//		ID=1;deporte=Fútbol;titulo=Cursos de fútbol libres en uniandes;lugar=Centro deportivo Universidad de los Andes;organizador=uniandes;localizacion=4.600196,-74.063390;Fecha=09/13/2014 15:30:00
+//				ID=2;deporte=Baloncesto;titulo=Cursos de baloncesto libres en uniandes;lugar=Centro deportivo Universidad de los Andes;organizador=uniandes;localizacion=4.600196,-74.063390;Fecha=09/13/2014 15:30:00
+//				ID=3;deporte=Voleibol;titulo=Cursos de voleybol libres en uniandes;lugar=Centro deportivo Universidad de los Andes;organizador=uniandes;localizacion=4.600196,-74.063390;Fecha=09/13/2014 15:30:00
+//				ID=4;deporte=Tenis;titulo=Cursos de tenis libres en uniandes;lugar=Centro deportivo universidad de los Andes;organizador=uniandes;localizacion=4.600196,-74.063390;Fecha=09/13/2014 15:30:00
+//				ID=5;deporte=Fútbol;titulo=Cursos de soccer libres en uniandes;lugar=Centro deportivo universidad de los Andes;organizador=uniandes;localizacion=4.600196,-74.063390;Fecha=09/13/2014 15:30:00
+//				ID=6;deporte=Tenis;titulo=Cursos de tenis libres en uniandes;lugar=Centro deportivo universidad de los Andes;organizador=uniandes;localizacion=4.600196,-74.063390;Fecha=09/13/2014 15:30:00
 		loadAss(c);
+				
+//				userdata
+//				score=2.8;futbol=2;basket=5;voley=2;tenis=5
 	}
 
 	private void loadAss(Context c) {
@@ -84,28 +130,28 @@ public class Spartan {
 			BufferedReader br = new BufferedReader(new InputStreamReader(c
 					.getResources().getAssets().open("events_data.txt")));
 			String linea = br.readLine();
-//			ID=1;IdEvento=1;estado=1;Invitado=Diva Martinez 
+			// ID=1;IdEvento=1;estado=1;Invitado=Diva Martinez
 
 			int idA;
 			String idEvento;
 			String estado;
 			String invitado;
 			Asistencia a;
-			boolean es =false;
+			boolean es = false;
 
 			while (linea != null) {
-				
-				 idA=Integer.parseInt(linea.split(";")[0].split("=")[1]);
-				 idEvento = linea.split(";")[1].split("=")[1];
-				 estado= linea.split(";")[2].split("=")[1];
-				 invitado= linea.split(";")[3].split("=")[1];
+
+				idA = Integer.parseInt(linea.split(";")[0].split("=")[1]);
+				idEvento = linea.split(";")[1].split("=")[1];
+				estado = linea.split(";")[2].split("=")[1];
+				invitado = linea.split(";")[3].split("=")[1];
 				int est = Integer.parseInt(estado);
-				
-				es = (est!=0);
+
+				es = (est != 0);
 				Evento corr = getEventById(idEvento);
-				if (corr!=null) {
-					
-					Asistencia as = new Asistencia(corr, invitado,idA); 
+				if (corr != null) {
+
+					Asistencia as = new Asistencia(corr, invitado, idA);
 					user.agregarAsistencia(as);
 				}
 
@@ -113,7 +159,7 @@ public class Spartan {
 			br.close();
 		} catch (Exception e) {
 			e.printStackTrace();
-		}		
+		}
 	}
 
 	// -----------------------------------------------------------------

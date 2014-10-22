@@ -1,159 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:android1="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/splashScreenBackground"
     android:orientation="horizontal" >
 
-    <!-- Estadisticas del juegador -->
-
-
-    <!-- Ranking -->
-
-    <!-- Puntaje del juegador -->
-
-
-    <!-- Informacion encuentros previos -->
-
 
     <!-- Comandos de la vista -->
 
     <LinearLayout
-        android1:layout_width="wrap_content"
-        android1:layout_height="wrap_content"
-        android1:layout_marginLeft="5dp"
-        android1:layout_marginRight="5dp"
-        android1:layout_marginTop="30dp" >
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="15dp" >
 
         <LinearLayout
-            android1:layout_width="wrap_content"
-            android1:layout_height="wrap_content"
-            android1:orientation="vertical" >
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
             <ImageButton
-                android1:layout_width="158dp"
-                android1:layout_height="98dp"
-                android1:background="@color/splashScreenBackground"
-                android1:onClick="verPerfil"
-                android1:scaleType="fitCenter"
-                android1:src="@drawable/my_events" />
+                android:layout_width="158dp"
+                android:layout_height="98dp"
+                android:background="@color/splashScreenBackground"
+                android:scaleType="fitCenter"
+                android:src="@drawable/my_events"
+                android:onClick="verEventosUsuario" />
 
             <TextView
-                android1:id="@+id/TextView01"
-                android1:layout_width="wrap_content"
-                android1:layout_height="wrap_content"
-                android1:layout_gravity="center_horizontal"
-                android1:text="Eventos"
-                android1:textAppearance="?android:attr/textAppearanceMedium"
-                android1:textColor="@color/white" />
+                android:id="@+id/TextView01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Eventos"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/white" />
 
         </LinearLayout>
 
         <LinearLayout
-            android1:layout_width="wrap_content"
-            android1:layout_height="wrap_content"
-            android1:orientation="vertical" >
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
             <ImageButton
-                android1:layout_width="158dp"
-                android1:layout_height="98dp"
-                android1:background="@color/splashScreenBackground"
-                android1:onClick="verPerfil"
-                android1:scaleType="fitCenter"
-                android1:src="@drawable/my_teams" />
+                android:layout_width="158dp"
+                android:layout_height="98dp"
+                android:background="@color/splashScreenBackground"
+                android:onClick="verEquiposUsuario"
+                android:scaleType="fitCenter"
+                android:src="@drawable/my_teams" />
 
             <TextView
-                android1:id="@+id/textView1"
-                android1:layout_width="wrap_content"
-                android1:layout_height="wrap_content"
-                android1:layout_gravity="center_horizontal"
-                android1:text="Equipos"
-                android1:textAppearance="?android:attr/textAppearanceMedium"
-                android1:textColor="@color/white" />
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Equipos"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/white" />
 
         </LinearLayout>
 
     </LinearLayout>
 
     <LinearLayout
-        android1:layout_width="match_parent"
-        android1:layout_height="wrap_content"
-        android1:layout_marginBottom="20dp"
-        android1:layout_marginTop="20dp"
-        android1:orientation="vertical" >
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="15dp"
+        android:orientation="vertical" >
 
         <ImageButton
-            android1:layout_width="match_parent"
-            android1:layout_height="98dp"
-            android1:background="@color/splashScreenBackground"
-            android1:onClick="verPerfil"
-            android1:scaleType="fitCenter"
-            android1:src="@drawable/spartan_icon" />
+            android:layout_width="match_parent"
+            android:layout_height="98dp"
+            android:background="@color/splashScreenBackground"
+            android:onClick="verPerfilUsuario"
+            android:scaleType="fitCenter"
+            android:src="@drawable/spartan_icon" />
 
         <TextView
-            android1:id="@+id/TextView02"
-            android1:layout_width="wrap_content"
-            android1:layout_height="wrap_content"
-            android1:layout_gravity="center_horizontal"
-            android1:text="Mi Perfil"
-            android1:textAppearance="?android:attr/textAppearanceMedium"
-            android1:textColor="@color/white" />
+            android:id="@+id/TextView02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Mi Perfil"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/white" />
 
     </LinearLayout>
 
     <LinearLayout
-        android1:layout_width="wrap_content"
-        android1:layout_height="wrap_content"
-        android1:layout_marginBottom="30dp"
-        android1:layout_marginLeft="5dp"
-        android1:layout_marginRight="5dp" >
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp" >
 
         <LinearLayout
-            android1:layout_width="wrap_content"
-            android1:layout_height="wrap_content"
-            android1:orientation="vertical" >
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
             <ImageButton
-                android1:layout_width="158dp"
-                android1:layout_height="98dp"
-                android1:background="@color/splashScreenBackground"
-                android1:onClick="verPerfil"
-                android1:scaleType="fitCenter"
-                android1:src="@drawable/create_team" />
+                android:layout_width="158dp"
+                android:layout_height="98dp"
+                android:background="@color/splashScreenBackground"
+                android:onClick="verJugadoresRecomendados"
+                android:scaleType="fitCenter"
+                android:src="@drawable/create_team" />
 
             <TextView
-                android1:id="@+id/TextView04"
-                android1:layout_width="wrap_content"
-                android1:layout_height="wrap_content"
-                android1:layout_gravity="center_horizontal"
-                android1:text="Perfect Team"
-                android1:textAppearance="?android:attr/textAppearanceMedium"
-                android1:textColor="@color/white" />
+                android:id="@+id/TextView04"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Perfect Team"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/white" />
 
         </LinearLayout>
 
         <LinearLayout
-            android1:layout_width="wrap_content"
-            android1:layout_height="wrap_content"
-            android1:orientation="vertical" >
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
             <ImageButton
-                android1:layout_width="158dp"
-                android1:layout_height="98dp"
-                android1:background="@color/splashScreenBackground"
-                android1:onClick="verPerfil"
-                android1:scaleType="fitCenter"
-                android1:src="@drawable/new_tournament" />
+                android:layout_width="158dp"
+                android:layout_height="98dp"
+                android:background="@color/splashScreenBackground"
+                android:onClick="verTorneosUsuario"
+                android:scaleType="fitCenter"
+                android:src="@drawable/new_tournament" />
 
             <TextView
-                android1:id="@+id/TextView03"
-                android1:layout_width="wrap_content"
-                android1:layout_height="wrap_content"
-                android1:layout_gravity="center_horizontal"
-                android1:text="Torneos"
-                android1:textAppearance="?android:attr/textAppearanceMedium"
-                android1:textColor="@color/white" />
+                android:id="@+id/TextView03"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Torneos"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/white" />
 
         </LinearLayout>
 

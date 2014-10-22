@@ -1,39 +1,62 @@
 package com.spartan.android;
 
-import com.example.spartan5.R;
-import com.example.spartan5.R.id;
-import com.example.spartan5.R.layout;
-import com.example.spartan5.R.menu;
-
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.util.Log;
+import android.view.View;
 
-public class MainOpciones extends ActionBarActivity {
+import com.example.spartan5.R;
+
+public class MainOpciones extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main_opciones);
 	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main_opciones, menu);
-		return true;
+	
+	public void verEventosUsuario(View w)
+	{
+		Log.v("todo","ver Eventos Usuario");
 	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
+	
+	public void verEquiposUsuario(View w)
+	{
+		Log.v("todo","ver Equipos Usuario");
 	}
+	
+	public void verPerfilUsuario(View w)
+	{
+		Intent intent = new Intent(getApplicationContext(), VerPerfilActivity.class);
+		startActivity(intent);
+	}
+	
+	public void verJugadoresRecomendados(View w){
+		Log.v("todo","ver Jugadores Recomendados");
+	}
+	
+	public void verTorneosUsuario(View w){
+		Log.v("todo","ver Torneos Usuario");
+	}
+	
+	
+	//	@Override
+//	public boolean onCreateOptionsMenu(Menu menu) {
+//		// Inflate the menu; this adds items to the action bar if it is present.
+//		getMenuInflater().inflate(R.menu.main_opciones, menu);
+//		return true;
+//	}
+//
+//	@Override
+//	public boolean onOptionsItemSelected(MenuItem item) {
+//		// Handle action bar item clicks here. The action bar will
+//		// automatically handle clicks on the Home/Up button, so long
+//		// as you specify a parent activity in AndroidManifest.xml.
+//		int id = item.getItemId();
+//		if (id == R.id.action_settings) {
+//			return true;
+//		}
+//		return super.onOptionsItemSelected(item);
+//	}
 }

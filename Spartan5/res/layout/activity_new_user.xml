@@ -13,8 +13,6 @@
         android:layout_weight="0.04"
         android:orientation="vertical" >
 
-        <!-- Ranking -->
-
         <ImageButton
             android:layout_width="match_parent"
             android:layout_height="140dp"
@@ -22,13 +20,7 @@
             android:onClick="verPerfil"
             android:scaleType="fitCenter"
             android:src="@drawable/spartan_icon" />
-
-        <!-- Puntaje del juegador -->
     </LinearLayout>
-    
-	<!-- Informacion encuentros previos -->
-
-	<!-- Comandos de la vista -->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -38,16 +30,14 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" >
+            android:layout_height="32dp"
+            android:layout_weight="0.43" >
 
             <TextView
-                android:id="@+id/textView1"
+                android:id="@+id/TextView04"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
                 android:text="Usuario:"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/white" />
@@ -56,30 +46,22 @@
                 android:id="@+id/newUserName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
                 android:layout_marginRight="20dp"
-                android:layout_marginTop="20dp"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="textPersonName" >
-
-                <requestFocus />
-            </EditText>
-
+                android:inputType="textPersonName" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" >
+            android:layout_height="32dp"
+            android:layout_weight="0.43" >
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/TextView02"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
                 android:text="Celular:"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/white" />
@@ -88,27 +70,25 @@
                 android:id="@+id/newUserPhone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
                 android:layout_marginRight="20dp"
-                android:layout_marginTop="20dp"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="phone" />
+                android:inputType="phone" >
 
+                <requestFocus />
+            </EditText>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" >
+            android:layout_height="32dp"
+            android:layout_weight="0.43" >
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/TextView01"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
                 android:text="Contraseña:"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/white" />
@@ -117,9 +97,7 @@
                 android:id="@+id/newUserPassword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
                 android:layout_marginRight="20dp"
-                android:layout_marginTop="20dp"
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPassword" />
@@ -129,15 +107,13 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1" >
+            android:layout_weight="0.43" >
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/TextView03"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
                 android:text="Contraseña:"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/white" />
@@ -146,16 +122,17 @@
                 android:id="@+id/newUserPasswordConf"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
                 android:layout_marginRight="20dp"
-                android:layout_marginTop="20dp"
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPassword" />
 
         </LinearLayout>
-
     </LinearLayout>
+    
+	<!-- Informacion encuentros previos -->
+
+	<!-- Comandos de la vista -->
 
     <LinearLayout
         android:layout_width="match_parent"
